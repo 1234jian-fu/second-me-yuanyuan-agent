@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Recording - Second Me</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#e4e2de",
+                        "inverse-primary": "#becca3",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#dbdad6",
+                        "on-secondary-container": "#59646a",
+                        "tertiary-fixed": "#ebe1d6",
+                        "on-surface-variant": "#45483f",
+                        "on-primary-fixed": "#141f05",
+                        "on-tertiary-fixed-variant": "#4c463e",
+                        "primary-fixed": "#dae8be",
+                        "background": "#fbf9f5",
+                        "primary-fixed-dim": "#becca3",
+                        "tertiary-fixed-dim": "#cec5bb",
+                        "on-tertiary-container": "#443f37",
+                        "on-secondary-fixed-variant": "#3d484e",
+                        "outline-variant": "#c6c8bb",
+                        "surface-container-highest": "#e4e2de",
+                        "secondary-container": "#d5e1e8",
+                        "primary-container": "#a3b18a",
+                        "on-error": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#566342",
+                        "surface-container-low": "#f5f3ef",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#f2f0ed",
+                        "on-tertiary-fixed": "#1f1b14",
+                        "on-primary-container": "#384425",
+                        "on-error-container": "#93000a",
+                        "surface-tint": "#566342",
+                        "secondary-fixed-dim": "#bcc8cf",
+                        "secondary-fixed": "#d8e4eb",
+                        "tertiary": "#645d55",
+                        "on-surface": "#1b1c1a",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#3f4b2c",
+                        "on-background": "#1b1c1a",
+                        "tertiary-container": "#b3aaa0",
+                        "secondary": "#556066",
+                        "on-secondary-fixed": "#121d22",
+                        "on-secondary": "#ffffff",
+                        "outline": "#76786e",
+                        "inverse-surface": "#30312e",
+                        "surface-container-high": "#eae8e4",
+                        "surface-container": "#efeeea",
+                        "surface": "#fbf9f5",
+                        "surface-bright": "#fbf9f5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-margin": "32px",
+                        "gutter": "24px",
+                        "unit": "8px",
+                        "section-gap": "64px",
+                        "card-padding": "24px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Manrope"],
+                        "headline-md": ["Manrope"],
+                        "headline-lg": ["Manrope"],
+                        "headline-display": ["Manrope"],
+                        "body-md": ["Manrope"],
+                        "body-lg": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "400" }],
+                        "headline-display": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "300" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #fbf9f5; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md antialiased min-h-screen flex flex-col relative overflow-x-hidden">
+<!-- Ambient Background Watermark -->
+<div class="fixed inset-0 pointer-events-none z-0 overflow-hidden flex justify-end items-end opacity-5">
+<img alt="Botanical watermark" class="w-full h-full object-cover transform scale-150 translate-x-1/4 translate-y-1/4" data-alt="soft shadow of eucalyptus leaves on a textured wall, minimalist botanical watermark, light beige background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChNhdNG_pbROV7Zq5XsDB4GVXhZDGJRTYOJK28271dAgZoI_yD9Gp3zEJx_ARno7olqd4CstZLJsMFWRXOttenNE7fUxuyIFIQ3bYADABmJytqASrTdQgO0A9a8rgLOLXq2ti-E-mdjlRgda-guImhowC_o-uregkyxjEdSwswMMrmZRNWdjkkv1f9tCKthalipSB9ZryhQJLvz3G_s1fzq-ZFPLMjq2Od_UR_Qb3phHLQUNX_RuWVsFMLKlfYyy-okWJX7miSZdM"/>
+</div>
+<!-- TopAppBar (From JSON) -->
+<header class="flex items-center justify-between px-8 w-full h-16 bg-[#FDFBF7]/80 dark:bg-stone-900/80 backdrop-blur-md border-none sticky top-0 z-50">
+<button class="text-[#A3B18A] dark:text-[#A3B18A] hover:opacity-70 transition-opacity active:scale-95 flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'wght' 300;">arrow_back</span>
+</button>
+<h1 class="text-lg font-semibold text-stone-800 dark:text-stone-100 font-['Manrope'] font-medium tracking-tight">Recording</h1>
+<button class="text-[#A3B18A] dark:text-[#A3B18A] hover:opacity-70 transition-opacity active:scale-95 flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'wght' 300;">more_vert</span>
+</button>
+</header>
+<!-- Main Canvas -->
+<main class="flex-1 flex flex-col items-center px-container-margin py-section-gap relative z-10 pb-32">
+<!-- Header Section -->
+<div class="flex flex-col items-center text-center max-w-md w-full mb-section-gap">
+<h2 class="font-headline-display text-headline-display text-on-surface mb-gutter tracking-tight">用声音记录此刻</h2>
+<p class="font-body-md text-body-md text-outline px-4">录完后将自动上传，并由 AI 帮你整理与分析</p>
+</div>
+<!-- Core Recording Area -->
+<div class="flex flex-col items-center justify-center flex-1 w-full min-h-[300px] relative my-8">
+<!-- Diffusion Rings -->
+<div class="absolute w-[280px] h-[280px] rounded-full border border-primary-container/20 bg-primary-container/5"></div>
+<div class="absolute w-[200px] h-[200px] rounded-full border border-primary-container/30 bg-primary-container/10"></div>
+<!-- Central Record Button -->
+<button class="relative w-32 h-32 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shadow-[0_8px_32px_rgba(163,177,138,0.35)] hover:bg-primary transition-colors focus:outline-none">
+<span class="material-symbols-outlined text-[48px]" style="font-variation-settings: 'FILL' 1, 'wght' 300;">mic</span>
+</button>
+<!-- Status Feedback -->
+<div class="flex flex-col items-center mt-12">
+<!-- Waveform -->
+<div class="flex items-center justify-center gap-1.5 h-8 mb-4">
+<div class="w-1 h-3 bg-outline-variant rounded-full"></div>
+<div class="w-1 h-6 bg-primary-container rounded-full"></div>
+<div class="w-1 h-4 bg-outline-variant rounded-full"></div>
+<div class="w-1 h-8 bg-primary-container rounded-full"></div>
+<div class="w-1 h-5 bg-outline-variant rounded-full"></div>
+<div class="w-1 h-7 bg-primary-container rounded-full"></div>
+<div class="w-1 h-3 bg-outline-variant rounded-full"></div>
+</div>
+<!-- Timer -->
+<div class="font-headline-lg text-headline-lg text-on-surface tracking-widest">00:36</div>
+<!-- Status Text -->
+<div class="font-label-sm text-label-sm text-primary uppercase tracking-widest mt-2 opacity-80">正在录音…</div>
+</div>
+</div>
+<!-- Upload Status Card -->
+<div class="w-full max-w-md bg-surface-container-lowest rounded-[32px] p-card-padding shadow-[0_4px_24px_rgba(0,0,0,0.03)] border border-surface-variant mt-section-gap">
+<div class="flex items-center justify-between mb-4">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">上传状态</span>
+<span class="material-symbols-outlined text-outline-variant" style="font-variation-settings: 'wght' 300;">cloud_upload</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1, 'wght' 300;">audio_file</span>
+</div>
+<div class="flex-1">
+<h3 class="font-body-md text-body-md text-on-surface mb-1">晨间记录.m4a</h3>
+<p class="font-label-sm text-label-sm text-outline">时长 03:28</p>
+</div>
+<div class="bg-secondary-container text-on-secondary-container px-4 py-1.5 rounded-full font-label-sm text-label-sm whitespace-nowrap">
+                    分析中
+                </div>
+</div>
+</div>
+<!-- Bottom Actions -->
+<div class="w-full max-w-md flex flex-col items-center mt-12 gap-6">
+<button class="w-full py-4 px-8 rounded-full bg-primary text-on-primary font-body-lg text-body-lg shadow-[0_8px_24px_rgba(86,99,66,0.15)] hover:opacity-90 transition-opacity focus:outline-none flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1, 'wght' 300;">stop_circle</span>
+                停止录音
+            </button>
+<button class="font-label-sm text-label-sm text-secondary uppercase tracking-widest hover:text-on-surface transition-colors focus:outline-none">
+                取消
+            </button>
+<div class="font-label-sm text-label-sm text-outline-variant mt-4">
+                录音内容仅自己可见
+            </div>
+</div>
+</main>
+<!-- Bottom Navigation Shell -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-6 pb-8 pt-4 bg-white/95 backdrop-blur-lg rounded-t-[32px] shadow-[0_-8px_30px_rgb(0,0,0,0.04)]">
+<!-- Home -->
+<a class="flex flex-col items-center justify-center text-stone-300 hover:text-[#A3B18A] transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="home_max">home_max</span>
+<span class="font-manrope text-[11px] font-semibold uppercase tracking-widest">Home</span>
+</a>
+<!-- Record (Active) -->
+<a class="flex flex-col items-center justify-center text-[#A3B18A] transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="add_circle" style="font-variation-settings: 'FILL' 1;">add_circle</span>
+<span class="font-manrope text-[11px] font-semibold uppercase tracking-widest">Record</span>
+</a>
+<!-- Chat -->
+<a class="flex flex-col items-center justify-center text-stone-300 hover:text-[#A3B18A] transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="bubble_chart">bubble_chart</span>
+<span class="font-manrope text-[11px] font-semibold uppercase tracking-widest">Chat</span>
+</a>
+<!-- Plan -->
+<a class="flex flex-col items-center justify-center text-stone-300 hover:text-[#A3B18A] transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="auto_awesome_motion">auto_awesome_motion</span>
+<span class="font-manrope text-[11px] font-semibold uppercase tracking-widest">Plan</span>
+</a>
+</nav>
+<!-- Status Bar Spacer for Mobile -->
+<div class="h-8 bg-transparent"></div>
+</body></html>

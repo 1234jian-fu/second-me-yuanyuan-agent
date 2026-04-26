@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Second Me - 设置</title>
+<!-- Fonts & Icons -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration (from System Prompt) -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#605a7c",
+                        "surface-bright": "#fdf8fb",
+                        "secondary-container": "#e5e0cc",
+                        "inverse-surface": "#313032",
+                        "on-background": "#1c1b1e",
+                        "on-primary-fixed": "#1c1735",
+                        "surface-container-low": "#f7f2f5",
+                        "on-tertiary-fixed-variant": "#4f471c",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-container": "#625c7e",
+                        "background": "#fdf8fb",
+                        "outline": "#79767e",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#cac1e8",
+                        "error": "#ba1a1a",
+                        "surface-container-high": "#ebe7ea",
+                        "primary-fixed": "#e6deff",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed-variant": "#484263",
+                        "on-primary": "#ffffff",
+                        "surface-container-highest": "#e6e1e4",
+                        "surface-variant": "#e6e1e4",
+                        "secondary-fixed-dim": "#ccc6b4",
+                        "on-secondary-fixed-variant": "#4a4739",
+                        "surface-tint": "#605a7c",
+                        "primary-container": "#e0d7ff",
+                        "surface": "#fdf8fb",
+                        "on-secondary-fixed": "#1e1c10",
+                        "inverse-on-surface": "#f4eff3",
+                        "on-secondary-container": "#666353",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#cac1e8",
+                        "tertiary-container": "#eadda4",
+                        "secondary": "#625f4f",
+                        "tertiary-fixed": "#f0e3a9",
+                        "tertiary": "#685f31",
+                        "outline-variant": "#c9c5ce",
+                        "on-surface-variant": "#48464d",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#1c1b1e",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#ddd9dc",
+                        "secondary-fixed": "#e8e2cf",
+                        "on-tertiary-fixed": "#211b00",
+                        "on-tertiary-container": "#6a6133",
+                        "tertiary-fixed-dim": "#d3c790",
+                        "surface-container": "#f1edf0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "12px",
+                        "md": "24px",
+                        "xs": "4px",
+                        "xl": "80px",
+                        "margin": "32px",
+                        "lg": "48px",
+                        "gutter": "24px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "h1": ["Manrope", "sans-serif"],
+                        "label-sm": ["Manrope", "sans-serif"],
+                        "h3": ["Manrope", "sans-serif"],
+                        "body-md": ["Manrope", "sans-serif"],
+                        "body-lg": ["Manrope", "sans-serif"],
+                        "h2": ["Manrope", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "h1": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "label-sm": ["13px", { "lineHeight": "1.2", "letterSpacing": "0.04em", "fontWeight": "600" }],
+                        "h3": ["20px", { "lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "500" }],
+                        "body-md": ["15px", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }],
+                        "body-lg": ["17px", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }],
+                        "h2": ["28px", { "lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Base styles for material icons */
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Custom scrollbar for a cleaner look */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e6e1e4;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #c9c5ce;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface h-screen w-full flex overflow-hidden font-body-md text-body-md antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- JSON Component: SideNavBar -->
+<nav class="w-[248px] h-screen border-r border-[#E5E0D8] dark:border-slate-800 bg-[#F9F8F6] dark:bg-[#121212] flex flex-col h-full p-6 gap-y-4 shrink-0 z-20 md:flex hidden">
+<!-- Brand Header -->
+<div class="flex items-center gap-3 mb-8 px-2">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center shrink-0 overflow-hidden shadow-sm border border-outline-variant">
+<span class="material-symbols-outlined text-on-primary-container text-[20px]" data-weight="fill" style="font-variation-settings: 'FILL' 1;">
+                    data_exploration
+                </span>
+</div>
+<div class="flex flex-col">
+<span class="text-xl font-bold text-slate-900 dark:text-white tracking-tight leading-tight">Second Me</span>
+<span class="font-label-sm text-label-sm text-slate-500 uppercase tracking-widest mt-0.5">数字庇护所</span>
+</div>
+</div>
+<!-- Navigation Links -->
+<ul class="flex flex-col gap-1 w-full flex-1">
+<li>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:bg-[#F0EDE9] dark:hover:bg-slate-800 rounded-lg scale-95 active:scale-90 transition-transform hover:bg-[#F0EDE9] dark:hover:bg-slate-800 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<span class="font-manrope text-sm font-medium tracking-tight">仪表盘</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:bg-[#F0EDE9] dark:hover:bg-slate-800 rounded-lg scale-95 active:scale-90 transition-transform hover:bg-[#F0EDE9] dark:hover:bg-slate-800 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">library_books</span>
+<span class="font-manrope text-sm font-medium tracking-tight">记录库</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:bg-[#F0EDE9] dark:hover:bg-slate-800 rounded-lg scale-95 active:scale-90 transition-transform hover:bg-[#F0EDE9] dark:hover:bg-slate-800 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">summarize</span>
+<span class="font-manrope text-sm font-medium tracking-tight">摘要中心</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:bg-[#F0EDE9] dark:hover:bg-slate-800 rounded-lg scale-95 active:scale-90 transition-transform hover:bg-[#F0EDE9] dark:hover:bg-slate-800 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">face_6</span>
+<span class="font-manrope text-sm font-medium tracking-tight">个人画像</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:bg-[#F0EDE9] dark:hover:bg-slate-800 rounded-lg scale-95 active:scale-90 transition-transform hover:bg-[#F0EDE9] dark:hover:bg-slate-800 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">chat_bubble</span>
+<span class="font-manrope text-sm font-medium tracking-tight">AI 对话</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:bg-[#F0EDE9] dark:hover:bg-slate-800 rounded-lg scale-95 active:scale-90 transition-transform hover:bg-[#F0EDE9] dark:hover:bg-slate-800 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">system_update_alt</span>
+<span class="font-manrope text-sm font-medium tracking-tight">导入中心</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:bg-[#F0EDE9] dark:hover:bg-slate-800 rounded-lg scale-95 active:scale-90 transition-transform hover:bg-[#F0EDE9] dark:hover:bg-slate-800 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">insights</span>
+<span class="font-manrope text-sm font-medium tracking-tight">洞察</span>
+</a>
+</li>
+<!-- ACTIVE TAB: Settings -->
+<li>
+<a class="flex items-center gap-3 px-3 py-2.5 bg-[#E0D7FF] dark:bg-[#4A4458] text-slate-900 dark:text-white font-semibold rounded-lg scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined text-[20px]" data-weight="fill" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span class="font-manrope text-sm tracking-tight">设置</span>
+</a>
+</li>
+</ul>
+<!-- User Profile Minimal at Bottom -->
+<div class="mt-auto pt-4 border-t border-[#E5E0D8] dark:border-slate-800">
+<button class="w-full flex items-center gap-3 px-2 py-2 text-slate-500 dark:text-slate-400 hover:bg-[#F0EDE9] dark:hover:bg-slate-800 rounded-lg transition-colors duration-200">
+<img alt="User Avatar" class="w-8 h-8 rounded-full object-cover" data-alt="close-up portrait of young woman with natural makeup in soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOQ6kztZIcakQJemgtzawuHf9M7Gbk3t8POH41tEOFflKb8JK00LnE_qQAb6IcBcECp7rEoPX1_v6EipJWwmsd_VILY-1nA5-Ful8wed7b7Rt_889Pb9CCktTBZutaPlz1O2hnmjwEXAhY9OAxRf97I5LnY7uC8PPoG1x3NGO_UCAVBSsx7GkvOJP-myIvrB-Dd-bWBoHSNwVBkM1S2o0mMiWY90B8pkn2homqluFZfEp9FGZUCZ8moSN9Zz8NY_IYH6jnecNhDjI"/>
+<div class="flex flex-col items-start overflow-hidden">
+<span class="font-manrope text-sm font-medium tracking-tight truncate w-full text-left">Elara Vance</span>
+<span class="text-xs opacity-70 truncate w-full text-left">专业版计划</span>
+</div>
+</button>
+</div>
+</nav>
+<!-- Main Application Area -->
+<main class="flex-1 flex flex-col h-screen min-w-0 bg-surface relative">
+<!-- JSON Component: TopAppBar -->
+<header class="h-16 w-full border-b border-[#E5E0D8] dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-sm dark:shadow-none flex items-center justify-between px-8 w-full sticky top-0 z-10 shrink-0 font-manrope text-sm">
+<!-- Search Bar on Left -->
+<div class="flex-1 flex items-center">
+<div class="relative w-full max-w-md flex items-center focus-within:ring-2 focus-within:ring-[#E0D7FF] rounded-full bg-surface-container-low border border-surface-variant transition-all">
+<span class="material-symbols-outlined absolute left-3 text-slate-400 text-[18px]">search</span>
+<input class="w-full bg-transparent border-none focus:ring-0 pl-10 pr-4 py-2 text-sm text-slate-900 placeholder:text-slate-400 rounded-full h-9" placeholder="搜索设置..." type="text"/>
+</div>
+</div>
+<!-- Right Actions -->
+<div class="flex items-center gap-4 ml-4">
+<button class="text-slate-500 dark:text-slate-400 hover:opacity-80 transition-opacity flex items-center justify-center w-8 h-8 rounded-full hover:bg-surface-variant">
+<span class="material-symbols-outlined text-[20px]">sync</span>
+</button>
+<button class="text-slate-500 dark:text-slate-400 hover:opacity-80 transition-opacity flex items-center justify-center w-8 h-8 rounded-full hover:bg-surface-variant relative">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 bg-error rounded-full"></span>
+</button>
+</div>
+</header>
+<!-- Canvas Area (Scrollable Content) -->
+<div class="flex-1 overflow-y-auto px-lg py-xl">
+<div class="max-w-[1024px] mx-auto w-full flex flex-col gap-lg">
+<!-- Page Header -->
+<div class="flex flex-col gap-2 mb-4">
+<h1 class="font-h1 text-h1 text-on-surface">设置中心</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">管理您的数字庇护所偏好、安全和 AI 模型策略。</p>
+</div>
+<!-- Bento Grid for Settings -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Account & Devices (Span 8) -->
+<div class="lg:col-span-8 bg-surface-container-lowest border border-surface-variant rounded-xl shadow-sm p-md flex flex-col gap-6">
+<div class="flex items-center gap-3 border-b border-surface-variant pb-4">
+<span class="material-symbols-outlined text-primary text-[24px]">manage_accounts</span>
+<h2 class="font-h3 text-h3 text-on-surface">账户与身份</h2>
+</div>
+<div class="flex flex-col sm:flex-row gap-6 items-start">
+<div class="w-20 h-20 rounded-full overflow-hidden border-2 border-primary-container shrink-0 relative group cursor-pointer">
+<img alt="Profile" class="w-full h-full object-cover" data-alt="close-up portrait of young woman with natural makeup in soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOPw5rqSZFR6hsB_prCP4GNDdcj81B17KwLmQTl4l3nLt1fVSPkpK1lbZC_5UlNNu6aBBPCN1Euc0aSyh9hzEuhzRXrptgfi1bJv28p0-1_VbaACa1s9X7cR_He-RtgiN4vBaVtkHYYs5b_fgzU_ONgosDL-QpjferK9rZASSa1MDPQh5yy4dSkwoBmfe5yVBaAO1alIjI_-Ik5KGIamvjtvYS4z4U5euA-9LuBw50cEp_E4HqmB0rK1q6Lmr9KZKVwIOPiOEhnUw"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-white text-[20px]">edit</span>
+</div>
+</div>
+<div class="flex-1 flex flex-col gap-1">
+<div class="flex justify-between items-start w-full">
+<div>
+<div class="font-body-lg text-body-lg font-medium text-on-surface">Elara Vance</div>
+<div class="font-body-md text-body-md text-on-surface-variant">elara.vance@example.com</div>
+</div>
+<button class="bg-primary-container text-on-primary-fixed font-label-sm text-label-sm px-4 py-2 rounded-lg hover:bg-primary hover:text-white transition-colors">
+                                        编辑资料
+                                    </button>
+</div>
+<div class="mt-4 p-4 bg-surface-container-low rounded-lg border border-surface-variant flex justify-between items-center">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface">订阅</span>
+<span class="font-body-md text-body-md text-primary font-medium">Sanctuary Pro</span>
+</div>
+<button class="text-primary hover:underline font-label-sm text-label-sm">管理</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Storage & Sync (Span 4) -->
+<div class="lg:col-span-4 bg-surface-container-lowest border border-surface-variant rounded-xl shadow-sm p-md flex flex-col gap-6">
+<div class="flex items-center gap-3 border-b border-surface-variant pb-4">
+<span class="material-symbols-outlined text-primary text-[24px]">cloud_sync</span>
+<h2 class="font-h3 text-h3 text-on-surface">存储</h2>
+</div>
+<div class="flex flex-col gap-4 flex-1 justify-center">
+<div class="flex justify-between items-end">
+<span class="font-body-md text-body-md text-on-surface-variant">已用空间</span>
+<span class="font-label-sm text-label-sm font-medium text-on-surface">45 GB / 100 GB</span>
+</div>
+<!-- Progress Bar -->
+<div class="h-2.5 w-full bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 45%;"></div>
+</div>
+<div class="flex items-center justify-between mt-2 pt-4 border-t border-surface-variant">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-on-surface">自动同步</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-normal">实时备份</span>
+</div>
+<!-- Toggle -->
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-surface-variant rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-outline-variant after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</div>
+<!-- Model Strategy (Span 7) -->
+<div class="lg:col-span-7 bg-surface-container-lowest border border-surface-variant rounded-xl shadow-sm p-md flex flex-col gap-6">
+<div class="flex items-center gap-3 border-b border-surface-variant pb-4">
+<span class="material-symbols-outlined text-primary text-[24px]">psychology</span>
+<h2 class="font-h3 text-h3 text-on-surface">模型策略</h2>
+</div>
+<div class="flex flex-col gap-5">
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-label-sm text-on-surface">主 AI 核心</label>
+<select class="w-full bg-surface-container-low border border-surface-variant text-on-surface text-sm rounded-lg focus:ring-primary focus:border-primary p-2.5 outline-none font-body-md text-body-md">
+<option>Orion v4 (均衡)</option>
+<option>Orion Max (深度分析)</option>
+<option>Nexus Lite (快速/本地)</option>
+</select>
+<p class="font-body-md text-body-md text-sm text-on-surface-variant mt-1">选择驱动您数字克隆体响应的智能引擎。</p>
+</div>
+<div class="flex flex-col gap-3 pt-4 border-t border-surface-variant">
+<div class="flex justify-between items-center">
+<label class="font-label-sm text-label-sm text-on-surface">上下文窗口记忆</label>
+<span class="font-label-sm text-label-sm text-primary">广泛 (32k)</span>
+</div>
+<input class="w-full h-2 bg-surface-variant rounded-lg appearance-none cursor-pointer accent-primary" max="100" min="1" type="range" value="75"/>
+<div class="flex justify-between text-xs text-on-surface-variant font-body-md">
+<span>专注</span>
+<span>广泛</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Privacy & Data (Span 5) -->
+<div class="lg:col-span-5 bg-surface-container-lowest border border-surface-variant rounded-xl shadow-sm p-md flex flex-col gap-6">
+<div class="flex items-center gap-3 border-b border-surface-variant pb-4">
+<span class="material-symbols-outlined text-primary text-[24px]">shield_lock</span>
+<h2 class="font-h3 text-h3 text-on-surface">隐私与数据</h2>
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-on-surface">仅本地处理</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-normal">在设备上保留敏感数据</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-surface-variant rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-outline-variant after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="flex items-center justify-between pt-3 border-t border-surface-variant">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-on-surface">匿名遥测</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-normal">帮助改进算法</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-surface-variant rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-outline-variant after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<button class="mt-2 w-full py-2.5 px-4 border border-outline-variant rounded-lg font-label-sm text-label-sm text-on-surface hover:bg-surface-container-low transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">download</span>
+                                导出我的数据保险库
+                            </button>
+</div>
+</div>
+</div>
+<!-- Footer / About section embedded at bottom -->
+<div class="flex flex-col items-center justify-center py-8 text-center gap-2">
+<div class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-on-surface-variant text-[16px]">eco</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Second Me 引擎 v2.4.1 (稳定版)</span>
+<div class="flex gap-4 mt-2">
+<a class="font-body-md text-body-md text-sm text-primary hover:underline" href="#">服务条款</a>
+<span class="text-surface-variant">•</span>
+<a class="font-body-md text-body-md text-sm text-primary hover:underline" href="#">隐私架构</a>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

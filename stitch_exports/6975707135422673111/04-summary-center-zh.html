@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>摘要中心 - 第二个我</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Manrope -->
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#605a7c",
+                    "surface-bright": "#fdf8fb",
+                    "secondary-container": "#e5e0cc",
+                    "inverse-surface": "#313032",
+                    "on-background": "#1c1b1e",
+                    "on-primary-fixed": "#1c1735",
+                    "surface-container-low": "#f7f2f5",
+                    "on-tertiary-fixed-variant": "#4f471c",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-container": "#625c7e",
+                    "background": "#fdf8fb",
+                    "outline": "#79767e",
+                    "on-error": "#ffffff",
+                    "primary-fixed-dim": "#cac1e8",
+                    "error": "#ba1a1a",
+                    "surface-container-high": "#ebe7ea",
+                    "primary-fixed": "#e6deff",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed-variant": "#484263",
+                    "on-primary": "#ffffff",
+                    "surface-container-highest": "#e6e1e4",
+                    "surface-variant": "#e6e1e4",
+                    "secondary-fixed-dim": "#ccc6b4",
+                    "on-secondary-fixed-variant": "#4a4739",
+                    "surface-tint": "#605a7c",
+                    "primary-container": "#e0d7ff",
+                    "surface": "#fdf8fb",
+                    "on-secondary-fixed": "#1e1c10",
+                    "inverse-on-surface": "#f4eff3",
+                    "on-secondary-container": "#666353",
+                    "error-container": "#ffdad6",
+                    "inverse-primary": "#cac1e8",
+                    "tertiary-container": "#eadda4",
+                    "secondary": "#625f4f",
+                    "tertiary-fixed": "#f0e3a9",
+                    "tertiary": "#685f31",
+                    "outline-variant": "#c9c5ce",
+                    "on-surface-variant": "#48464d",
+                    "on-tertiary": "#ffffff",
+                    "on-surface": "#1c1b1e",
+                    "on-error-container": "#93000a",
+                    "surface-dim": "#ddd9dc",
+                    "secondary-fixed": "#e8e2cf",
+                    "on-tertiary-fixed": "#211b00",
+                    "on-tertiary-container": "#6a6133",
+                    "tertiary-fixed-dim": "#d3c790",
+                    "surface-container": "#f1edf0"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "sm": "12px",
+                    "md": "24px",
+                    "xs": "4px",
+                    "xl": "80px",
+                    "margin": "32px",
+                    "lg": "48px",
+                    "gutter": "24px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "h1": ["Manrope"],
+                    "label-sm": ["Manrope"],
+                    "h3": ["Manrope"],
+                    "body-md": ["Manrope"],
+                    "body-lg": ["Manrope"],
+                    "h2": ["Manrope"]
+            },
+            "fontSize": {
+                    "h1": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                    "label-sm": ["13px", { "lineHeight": "1.2", "letterSpacing": "0.04em", "fontWeight": "600" }],
+                    "h3": ["20px", { "lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "500" }],
+                    "body-md": ["15px", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }],
+                    "body-lg": ["17px", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }],
+                    "h2": ["28px", { "lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface-bright text-on-surface h-screen flex overflow-hidden">
+<!-- SideNavBar (From JSON) -->
+<nav class="w-[248px] h-screen border-r border-[#E5E0D8] dark:border-slate-800 bg-[#F9F8F6] dark:bg-[#121212] flex flex-col p-6 gap-y-4 shrink-0">
+<!-- Header -->
+<div class="flex items-center gap-3 mb-6 px-2">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center shrink-0 shadow-sm" data-alt="A glowing abstract digital orb representing a personal AI assistant, soft warm light, minimalist, soft edges" style="background-image: linear-gradient(135deg, #e0d7ff 0%, #cac1e8 100%);">
+<span class="material-symbols-outlined text-primary text-xl">blur_on</span>
+</div>
+<div>
+<h1 class="text-xl font-bold text-slate-900 dark:text-white tracking-tight">第二个我</h1>
+<p class="text-xs text-slate-500 font-medium">数字避难所</p>
+</div>
+</div>
+<!-- Navigation Links -->
+<div class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:bg-[#F0EDE9] dark:hover:bg-slate-800 rounded-lg transition-colors duration-200 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined text-xl">dashboard</span>
+<span class="font-manrope text-sm font-medium tracking-tight">仪表盘</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:bg-[#F0EDE9] dark:hover:bg-slate-800 rounded-lg transition-colors duration-200 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined text-xl">library_books</span>
+<span class="font-manrope text-sm font-medium tracking-tight">记录库</span>
+</a>
+<!-- Active State -->
+<a class="flex items-center gap-3 px-3 py-2 bg-[#E0D7FF] dark:bg-[#4A4458] text-slate-900 dark:text-white font-semibold rounded-lg scale-95 active:scale-90 transition-transform shadow-sm" href="#">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">summarize</span>
+<span class="font-manrope text-sm font-medium tracking-tight">摘要中心</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:bg-[#F0EDE9] dark:hover:bg-slate-800 rounded-lg transition-colors duration-200 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined text-xl">face_6</span>
+<span class="font-manrope text-sm font-medium tracking-tight">人物画像</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:bg-[#F0EDE9] dark:hover:bg-slate-800 rounded-lg transition-colors duration-200 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined text-xl">chat_bubble</span>
+<span class="font-manrope text-sm font-medium tracking-tight">AI 聊天</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:bg-[#F0EDE9] dark:hover:bg-slate-800 rounded-lg transition-colors duration-200 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined text-xl">system_update_alt</span>
+<span class="font-manrope text-sm font-medium tracking-tight">导入中心</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:bg-[#F0EDE9] dark:hover:bg-slate-800 rounded-lg transition-colors duration-200 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined text-xl">insights</span>
+<span class="font-manrope text-sm font-medium tracking-tight">洞察</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:bg-[#F0EDE9] dark:hover:bg-slate-800 rounded-lg transition-colors duration-200 scale-95 active:scale-90 transition-transform mt-auto" href="#">
+<span class="material-symbols-outlined text-xl">settings</span>
+<span class="font-manrope text-sm font-medium tracking-tight">设置</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col h-screen overflow-hidden">
+<!-- TopAppBar (From JSON) -->
+<header class="h-16 w-full border-b border-[#E5E0D8] dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md flex items-center justify-between px-8 shadow-sm dark:shadow-none focus-within:ring-2 focus-within:ring-[#E0D7FF] shrink-0 z-10">
+<div class="hidden text-[#E0D7FF] font-manrope text-sm">第二个我</div>
+<!-- Search Bar (on_left configuration) -->
+<div class="flex-1 max-w-md">
+<div class="relative flex items-center group">
+<span class="material-symbols-outlined absolute left-3 text-slate-400 group-focus-within:text-primary transition-colors">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-low border border-transparent rounded-lg focus:border-primary-container focus:ring-0 focus:bg-surface-container-lowest text-body-md font-body-md text-on-surface placeholder:text-outline-variant transition-all outline-none" placeholder="在摘要和证据中搜索..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-slate-500 hover:opacity-80 transition-opacity p-2 rounded-full hover:bg-surface-container-low">
+<span class="material-symbols-outlined">sync</span>
+</button>
+<button class="text-slate-500 hover:opacity-80 transition-opacity p-2 rounded-full hover:bg-surface-container-low">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="w-8 h-8 rounded-full ml-2 bg-secondary-container shrink-0 border border-outline-variant overflow-hidden" data-alt="Minimalist professional headshot of user, soft lighting, warm neutral background, facing slightly left">
+<!-- Placeholder for image -->
+<div class="w-full h-full bg-gradient-to-br from-secondary-container to-secondary-fixed-dim"></div>
+</div>
+</div>
+</header>
+<!-- Canvas -->
+<main class="flex-1 overflow-hidden flex bg-surface-bright">
+<!-- Left/Center: Summaries Canvas -->
+<div class="flex-1 flex flex-col h-full overflow-y-auto px-lg py-margin">
+<!-- Page Header & Tabs -->
+<div class="mb-lg">
+<h2 class="font-h2 text-h2 text-on-surface mb-md">摘要中心</h2>
+<div class="flex items-center gap-2 border-b border-surface-container-highest pb-xs">
+<button class="px-4 py-2 rounded-t-lg bg-primary-container text-on-primary-container font-label-sm text-label-sm border-b-2 border-primary transition-colors">日</button>
+<button class="px-4 py-2 rounded-t-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-sm text-label-sm border-b-2 border-transparent transition-colors">周</button>
+<button class="px-4 py-2 rounded-t-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-sm text-label-sm border-b-2 border-transparent transition-colors">月</button>
+<button class="px-4 py-2 rounded-t-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-sm text-label-sm border-b-2 border-transparent transition-colors">事件</button>
+<button class="px-4 py-2 rounded-t-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-sm text-label-sm border-b-2 border-transparent transition-colors">主题</button>
+</div>
+</div>
+<!-- Dual-Column Grid for Summary Cards -->
+<div class="grid grid-cols-1 xl:grid-cols-2 gap-md">
+<!-- Main Synthesis Card (Spans full width on smaller screens, 1 col on xl) -->
+<div class="bg-surface-container-lowest rounded-xl border border-surface-container-highest p-md shadow-sm xl:col-span-2 flex flex-col gap-sm relative overflow-hidden">
+<!-- Decorative subtle gradient -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary-container opacity-20 blur-3xl rounded-full -mr-20 -mt-20 pointer-events-none"></div>
+<div class="flex items-center justify-between mb-xs">
+<h3 class="font-h3 text-h3 text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">auto_awesome</span>
+                                今日综合
+                            </h3>
+<span class="font-label-sm text-label-sm text-outline">2023年10月24日</span>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                            今天的主基调是对项目规划和目标一致性的强烈关注。你成功地主导了第四季度战略会议，展现了积极倾听和综合复杂观点的能力。对于即将到来的产品发布，存在着反复出现的潜在压力，这在你下午通话时的语调中有所体现。
+                        </p>
+<div class="mt-4 flex gap-3">
+<span class="inline-flex items-center gap-1 px-3 py-1 bg-surface-container-low rounded-full font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">mood</span> 平衡
+                            </span>
+<span class="inline-flex items-center gap-1 px-3 py-1 bg-surface-container-low rounded-full font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">trending_up</span> 高效
+                            </span>
+</div>
+</div>
+<!-- Card 2: Key Decisions -->
+<div class="bg-surface-container-lowest rounded-xl border border-surface-container-highest p-md shadow-sm flex flex-col gap-sm hover:shadow-md transition-shadow cursor-pointer">
+<div class="flex items-center gap-2 mb-2 text-primary">
+<span class="material-symbols-outlined">gavel</span>
+<h3 class="font-h3 text-h3 text-on-surface">关键决策</h3>
+</div>
+<ul class="flex flex-col gap-3 font-body-md text-body-md text-on-surface-variant">
+<li class="flex items-start gap-3">
+<div class="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0"></div>
+<span>批准了修改后的欧洲市场扩张营销预算。</span>
+</li>
+<li class="flex items-start gap-3">
+<div class="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0"></div>
+<span>决定将工程部门团建推迟到第一季度初，以优先完成当前冲刺。</span>
+</li>
+</ul>
+</div>
+<!-- Card 3: Action Items -->
+<div class="bg-surface-container-lowest rounded-xl border border-surface-container-highest p-md shadow-sm flex flex-col gap-sm hover:shadow-md transition-shadow cursor-pointer">
+<div class="flex items-center gap-2 mb-2 text-tertiary">
+<span class="material-symbols-outlined">task_alt</span>
+<h3 class="font-h3 text-h3 text-on-surface">待办事项</h3>
+</div>
+<div class="flex flex-col gap-2">
+<label class="flex items-center gap-3 p-2 hover:bg-surface-container-low rounded-lg transition-colors cursor-pointer group">
+<input class="rounded text-primary focus:ring-primary-container border-outline-variant w-4 h-4 bg-transparent cursor-pointer" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface-variant group-hover:text-on-surface transition-colors">审阅 Sarah 的提案草稿</span>
+</label>
+<label class="flex items-center gap-3 p-2 hover:bg-surface-container-low rounded-lg transition-colors cursor-pointer group">
+<input class="rounded text-primary focus:ring-primary-container border-outline-variant w-4 h-4 bg-transparent cursor-pointer" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface-variant group-hover:text-on-surface transition-colors">跟进设计机构关于线框图的事宜</span>
+</label>
+</div>
+</div>
+<!-- Card 4: Persona Insights -->
+<div class="bg-surface-container-lowest rounded-xl border border-surface-container-highest p-md shadow-sm xl:col-span-2 flex flex-col gap-sm">
+<div class="flex items-center gap-2 mb-2 text-secondary">
+<span class="material-symbols-outlined">psychology</span>
+<h3 class="font-h3 text-h3 text-on-surface">认知模式检测</h3>
+</div>
+<div class="flex items-start gap-md">
+<div class="flex-1 font-body-md text-body-md text-on-surface-variant">
+<p>在下午的会议中，你的沟通风格变得更加坚定。AI 检测到在讨论技术债务时有打断他人的模式，表明你对当前进度有强烈的信念或感到不耐烦。</p>
+</div>
+<div class="w-32 h-20 rounded-lg bg-surface-container-low flex items-end p-2 relative overflow-hidden" data-alt="Subtle abstract data visualization of an audio waveform in soft lavender and grey tones">
+<!-- Abstract visual representation -->
+<div class="w-full flex items-end justify-between gap-1 opacity-60">
+<div class="w-1/6 bg-primary-fixed-dim h-1/3 rounded-t-sm"></div>
+<div class="w-1/6 bg-primary-container h-2/3 rounded-t-sm"></div>
+<div class="w-1/6 bg-primary h-full rounded-t-sm"></div>
+<div class="w-1/6 bg-primary-container h-1/2 rounded-t-sm"></div>
+<div class="w-1/6 bg-primary-fixed-dim h-1/4 rounded-t-sm"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Panel: Evidence Chain -->
+<aside class="w-[340px] shrink-0 border-l border-surface-container-highest bg-surface-container-lowest h-full overflow-y-auto p-md flex flex-col gap-md shadow-[-4px_0_24px_-12px_rgba(0,0,0,0.05)]">
+<div class="sticky top-0 bg-surface-container-lowest pb-sm z-10">
+<h3 class="font-h3 text-h3 text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-outline">link</span>
+                        证据链
+                    </h3>
+<p class="font-label-sm text-label-sm text-outline-variant mt-1">支持当前摘要的源记录</p>
+</div>
+<!-- Evidence Items -->
+<div class="flex flex-col gap-4 relative">
+<!-- Connecting line -->
+<div class="absolute left-[15px] top-4 bottom-4 w-px bg-surface-container-highest z-0"></div>
+<!-- Item 1 -->
+<div class="relative z-10 flex gap-3">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0 border-2 border-surface-container-lowest">
+<span class="material-symbols-outlined text-[18px]">mic</span>
+</div>
+<div class="flex-1 bg-surface-bright border border-surface-container-highest rounded-lg p-3 hover:border-primary-container transition-colors cursor-pointer shadow-sm">
+<div class="flex justify-between items-start mb-1">
+<span class="font-label-sm text-label-sm text-on-surface">语音备忘录</span>
+<span class="text-[11px] text-outline">09:15 AM</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm line-clamp-2">"考虑到第四季度的战略，我们需要确保与营销部门保持一致..."</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="relative z-10 flex gap-3">
+<div class="w-8 h-8 rounded-full bg-tertiary-container text-on-tertiary-container flex items-center justify-center shrink-0 border-2 border-surface-container-lowest">
+<span class="material-symbols-outlined text-[18px]">description</span>
+</div>
+<div class="flex-1 bg-surface-bright border border-surface-container-highest rounded-lg p-3 hover:border-primary-container transition-colors cursor-pointer shadow-sm">
+<div class="flex justify-between items-start mb-1">
+<span class="font-label-sm text-label-sm text-on-surface">会议记录</span>
+<span class="text-[11px] text-outline">11:00 AM</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm line-clamp-2">与执行团队同步第四季度战略。重点关注欧洲市场扩张的限制因素。</p>
+</div>
+</div>
+<!-- Persona Block Link -->
+<div class="relative z-10 flex gap-3 mt-2">
+<div class="w-8 h-8 rounded-full bg-primary-container text-primary flex items-center justify-center shrink-0 border-2 border-surface-container-lowest">
+<span class="material-symbols-outlined text-[18px]">face_6</span>
+</div>
+<div class="flex-1 bg-surface-container-low border border-transparent rounded-lg p-3 hover:bg-surface-container transition-colors cursor-pointer">
+<div class="flex items-center gap-2 mb-1">
+<span class="font-label-sm text-label-sm text-on-surface">人物画像块已更新</span>
+</div>
+<p class="font-body-md text-body-md text-primary text-sm italic">"沟通方式：直接/坚定"</p>
+</div>
+</div>
+</div>
+</aside>
+</main>
+</div>
+</body></html>

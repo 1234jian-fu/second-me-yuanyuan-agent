@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#4c463e",
+                    "primary-fixed": "#dae8be",
+                    "surface-container": "#efeeea",
+                    "primary-container": "#a3b18a",
+                    "on-error-container": "#93000a",
+                    "on-secondary-fixed": "#121d22",
+                    "tertiary": "#645d55",
+                    "surface-dim": "#dbdad6",
+                    "inverse-surface": "#30312e",
+                    "on-surface-variant": "#45483f",
+                    "outline": "#76786e",
+                    "on-secondary-container": "#59646a",
+                    "on-primary-fixed-variant": "#3f4b2c",
+                    "primary": "#566342",
+                    "surface-container-lowest": "#ffffff",
+                    "surface": "#fbf9f5",
+                    "surface-bright": "#fbf9f5",
+                    "surface-container-high": "#eae8e4",
+                    "on-primary-fixed": "#141f05",
+                    "inverse-primary": "#becca3",
+                    "surface-container-low": "#f5f3ef",
+                    "error-container": "#ffdad6",
+                    "surface-tint": "#566342",
+                    "secondary": "#556066",
+                    "on-tertiary-container": "#443f37",
+                    "primary-fixed-dim": "#becca3",
+                    "on-tertiary": "#ffffff",
+                    "on-background": "#1b1c1a",
+                    "tertiary-container": "#b3aaa0",
+                    "tertiary-fixed": "#ebe1d6",
+                    "error": "#ba1a1a",
+                    "surface-variant": "#e4e2de",
+                    "background": "#fbf9f5",
+                    "on-error": "#ffffff",
+                    "on-secondary-fixed-variant": "#3d484e",
+                    "outline-variant": "#c6c8bb",
+                    "secondary-container": "#d5e1e8",
+                    "on-primary": "#ffffff",
+                    "inverse-on-surface": "#f2f0ed",
+                    "secondary-fixed": "#d8e4eb",
+                    "tertiary-fixed-dim": "#cec5bb",
+                    "on-tertiary-fixed": "#1f1b14",
+                    "on-primary-container": "#384425",
+                    "surface-container-highest": "#e4e2de",
+                    "secondary-fixed-dim": "#bcc8cf",
+                    "on-surface": "#1b1c1a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "8px",
+                    "container-margin": "32px",
+                    "card-padding": "24px",
+                    "gutter": "24px",
+                    "section-gap": "64px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Manrope"],
+                    "label-sm": ["Manrope"],
+                    "headline-display": ["Manrope"],
+                    "body-md": ["Manrope"],
+                    "headline-lg": ["Manrope"],
+                    "body-lg": ["Manrope"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                    "label-sm": ["12px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-display": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "300"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+    font-size: 24px
+    }
+.bg-organic-pattern {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuBIu19iTCyv0_a7luVbQUA5Zyn4Ct9JKcLMK2pLoqWvhYQHLMfcEoc3i-GceKXlXkZ8W2jzbilWjMSeYvvswvXJq3DFqKC2tSQgXjvDwD8WpTztvtg163fj0_0EdZ4G8Ed7MNb--WmUCtn3YfZIZvKxl-uVqdA8ArJWCMHjVa2o29AMR4Q9mkVi0vO2exdm54HnU00Y1FSBzNmApWsEJ_9MKfgVl0U_qJ7LAix71vm2syZa4rAGxL48K3f7GTmR1VritJSZwDvS2uM);
+    background-size: cover;
+    background-position: center;
+    opacity: 0.03
+    }</style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md min-h-screen relative overflow-x-hidden">
+<!-- Background Decorator -->
+<div class="fixed inset-0 pointer-events-none z-0">
+<div class="absolute top-[-10%] right-[-5%] w-1/2 h-1/2 bg-organic-pattern mix-blend-multiply rotate-12"></div>
+<div class="absolute bottom-[-10%] left-[-5%] w-1/2 h-1/2 bg-organic-pattern mix-blend-multiply -rotate-12"></div>
+</div>
+<!-- Top AppBar Shell -->
+<header class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-8 py-4 bg-[#FDFBF7]/80 backdrop-blur-md">
+<div class="flex flex-col">
+<h1 class="text-headline-md font-headline-md text-on-surface">今天</h1>
+<p class="text-label-sm font-label-sm text-on-surface-variant opacity-70">5月8日 周四｜状态：平静专注</p>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-stone-400 hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container/20">
+<img alt="Avatar" class="w-full h-full object-cover" data-alt="Minimalist professional portrait of a woman with a serene expression, soft natural lighting, neutral studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-lAPsZ2vKsz9CQuW4_5YDuIk7zUCMDW6-hKEd6Pz8_PrxRnPon7cQYO2RSbKrAnapR64SwxxBYLfQTZj1J2O2t7Umqp7fU--mtSW6O_zOLT3a7CsrwdiSoH0N9SiXkpgKotR1KvyoW3yH7CF6qTR4Ibr14eY53RCXW86Lqo5wejnx7c5UYDhsN1Fja4OthxZJbFzmI5ZHG3y5iL_J2DBmA3hj1dOaX8WNDH7yZoJknOl-Vg8jwNdnbb4KwuYJ9hfBoQL0EPlRGrQ"/>
+</div>
+</div>
+</header>
+<main class="relative z-10 pt-32 pb-32 px-8 max-w-2xl mx-auto">
+<!-- 2x2 Bento Grid -->
+<div class="grid grid-cols-2 gap-4 mb-16">
+<!-- New Text Record -->
+<div class="bg-surface-container-low p-6 rounded-[32px] shadow-sm hover:shadow-md transition-all active:scale-95 flex flex-col justify-between aspect-square group">
+<div class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-on-surface-variant group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="edit_note">edit_note</span>
+</div>
+<div>
+<h3 class="text-body-lg font-headline-md leading-tight mb-1">新建文字记录</h3>
+<p class="text-label-sm font-label-sm text-on-surface-variant/60">随手记录想法与灵感</p>
+</div>
+</div>
+<!-- Start Recording (Primary) -->
+<div class="bg-primary-container p-6 rounded-[32px] shadow-xl shadow-primary-container/10 flex flex-col justify-between aspect-square active:scale-95 transition-all group relative overflow-hidden">
+<div class="absolute -top-4 -right-4 w-24 h-24 bg-white/10 rounded-full blur-2xl"></div>
+<div class="w-12 h-12 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-white">
+<span class="material-symbols-outlined" data-icon="mic" style="font-variation-settings: 'FILL' 1;">mic</span>
+</div>
+<div class="text-white">
+<h3 class="text-body-lg font-headline-md leading-tight mb-1">开始录音</h3>
+<p class="text-label-sm font-label-sm opacity-80">语音记录，AI 自动整理</p>
+</div>
+</div>
+<!-- AI Dialog -->
+<div class="bg-[#D6E2E9]/40 p-6 rounded-[32px] shadow-sm hover:shadow-md transition-all active:scale-95 flex flex-col justify-between aspect-square group">
+<div class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-[#556066]">
+<span class="material-symbols-outlined" data-icon="bubble_chart">bubble_chart</span>
+</div>
+<div>
+<h3 class="text-body-lg font-headline-md leading-tight mb-1">AI 对话</h3>
+<p class="text-label-sm font-label-sm text-on-surface-variant/60">整理思路，获得建议</p>
+</div>
+</div>
+<!-- Today's Plan -->
+<div class="bg-[#F5EBE0] p-6 rounded-[32px] shadow-sm hover:shadow-md transition-all active:scale-95 flex flex-col justify-between aspect-square group">
+<div class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-[#4c463e]">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+</div>
+<div>
+<h3 class="text-body-lg font-headline-md leading-tight mb-1">今日计划</h3>
+<p class="text-label-sm font-label-sm text-on-surface-variant/60">查看计划，聚焦每一步</p>
+</div>
+</div>
+</div>
+<!-- Recent Records Section -->
+<section class="mb-16">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-headline-md font-headline-md text-on-surface">最近记录</h2>
+<button class="text-label-sm font-label-sm text-primary flex items-center gap-1 hover:opacity-70 transition-opacity">
+                    全部 <span class="material-symbols-outlined text-[16px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+<div class="space-y-4">
+<!-- Record Item 1 -->
+<div class="bg-white p-6 rounded-[28px] shadow-sm flex items-start gap-4 group hover:bg-surface-container-low transition-colors">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="article">article</span>
+</div>
+<div class="flex-1">
+<div class="flex items-start justify-between mb-1">
+<h4 class="text-body-md font-medium text-on-surface">关于个人成长的思考</h4>
+<span class="px-2 py-0.5 bg-primary-container/10 text-primary text-[10px] font-bold uppercase rounded-md">已分析</span>
+</div>
+<p class="text-label-sm text-on-surface-variant/60 line-clamp-1 mb-2">在当今快速变化的环境中，如何保持内在的平静与...</p>
+<p class="text-[11px] font-medium text-on-surface-variant/40">今天 09:42</p>
+</div>
+</div>
+<!-- Record Item 2 -->
+<div class="bg-white p-6 rounded-[28px] shadow-sm flex items-start gap-4 group hover:bg-surface-container-low transition-colors">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="brand_awareness">brand_awareness</span>
+</div>
+<div class="flex-1">
+<div class="flex items-start justify-between mb-1">
+<h4 class="text-body-md font-medium text-on-surface">晨间灵感语音</h4>
+<span class="px-2 py-0.5 bg-tertiary-container/20 text-tertiary text-[10px] font-bold uppercase rounded-md">分析中</span>
+</div>
+<div class="flex items-center gap-2 mb-2">
+<div class="h-1 flex-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-1/3"></div>
+</div>
+<span class="text-[11px] font-medium text-on-surface-variant/60">03:28</span>
+</div>
+<p class="text-[11px] font-medium text-on-surface-variant/40">今天 07:35</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Digital Clone Learning Card -->
+<div class="bg-white p-8 rounded-[32px] shadow-sm relative overflow-hidden border border-surface-container">
+<div class="absolute top-0 right-0 w-32 h-32 opacity-10">
+<svg class="w-full h-full text-primary fill-none stroke-current stroke-1" viewbox="0 0 100 100">
+<path d="M10,80 Q30,20 50,50 T90,10"></path>
+</svg>
+</div>
+<div class="relative z-10">
+<div class="flex items-center gap-2 mb-2">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<h3 class="text-body-md font-headline-md text-on-surface">你的数字分身正在学习中</h3>
+</div>
+<p class="text-label-sm text-on-surface-variant/60">已学习 128 条记录，持续为你优化中</p>
+<div class="mt-6 flex gap-1 items-end h-8">
+<div class="w-1 bg-primary-container/20 h-4 rounded-full"></div>
+<div class="w-1 bg-primary-container/30 h-6 rounded-full"></div>
+<div class="w-1 bg-primary-container/40 h-5 rounded-full"></div>
+<div class="w-1 bg-primary-container/60 h-8 rounded-full"></div>
+<div class="w-1 bg-primary-container/40 h-6 rounded-full"></div>
+<div class="w-1 bg-primary-container/20 h-4 rounded-full"></div>
+<div class="w-1 bg-primary-container/10 h-3 rounded-full"></div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Shell -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-6 pb-8 pt-4 bg-white/95 backdrop-blur-lg rounded-t-[32px] shadow-[0_-8px_30px_rgb(0,0,0,0.04)]">
+<!-- Home (Active) -->
+<a class="flex flex-col items-center justify-center text-[#A3B18A] transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="home_max" style="font-variation-settings: 'FILL' 1;">home_max</span>
+<span class="font-manrope text-[11px] font-semibold uppercase tracking-widest">Home</span>
+</a>
+<!-- Record -->
+<a class="flex flex-col items-center justify-center text-stone-300 hover:text-[#A3B18A] transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="add_circle">add_circle</span>
+<span class="font-manrope text-[11px] font-semibold uppercase tracking-widest">Record</span>
+</a>
+<!-- Chat -->
+<a class="flex flex-col items-center justify-center text-stone-300 hover:text-[#A3B18A] transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="bubble_chart">bubble_chart</span>
+<span class="font-manrope text-[11px] font-semibold uppercase tracking-widest">Chat</span>
+</a>
+<!-- Plan -->
+<a class="flex flex-col items-center justify-center text-stone-300 hover:text-[#A3B18A] transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="auto_awesome_motion">auto_awesome_motion</span>
+<span class="font-manrope text-[11px] font-semibold uppercase tracking-widest">Plan</span>
+</a>
+</nav>
+<!-- Status Bar Spacer for Mobile -->
+<div class="h-8 bg-transparent"></div>
+</body></html>

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>首页 Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "primary": "#605a7c",
+                "surface-bright": "#fdf8fb",
+                "secondary-container": "#e5e0cc",
+                "inverse-surface": "#313032",
+                "on-background": "#1c1b1e",
+                "on-primary-fixed": "#1c1735",
+                "surface-container-low": "#f7f2f5",
+                "on-tertiary-fixed-variant": "#4f471c",
+                "surface-container-lowest": "#ffffff",
+                "on-primary-container": "#625c7e",
+                "background": "#fdf8fb",
+                "outline": "#79767e",
+                "on-error": "#ffffff",
+                "primary-fixed-dim": "#cac1e8",
+                "error": "#ba1a1a",
+                "surface-container-high": "#ebe7ea",
+                "primary-fixed": "#e6deff",
+                "on-secondary": "#ffffff",
+                "on-primary-fixed-variant": "#484263",
+                "on-primary": "#ffffff",
+                "surface-container-highest": "#e6e1e4",
+                "surface-variant": "#e6e1e4",
+                "secondary-fixed-dim": "#ccc6b4",
+                "on-secondary-fixed-variant": "#4a4739",
+                "surface-tint": "#605a7c",
+                "primary-container": "#e0d7ff",
+                "surface": "#fdf8fb",
+                "on-secondary-fixed": "#1e1c10",
+                "inverse-on-surface": "#f4eff3",
+                "on-secondary-container": "#666353",
+                "error-container": "#ffdad6",
+                "inverse-primary": "#cac1e8",
+                "tertiary-container": "#eadda4",
+                "secondary": "#625f4f",
+                "tertiary-fixed": "#f0e3a9",
+                "tertiary": "#685f31",
+                "outline-variant": "#c9c5ce",
+                "on-surface-variant": "#48464d",
+                "on-tertiary": "#ffffff",
+                "on-surface": "#1c1b1e",
+                "on-error-container": "#93000a",
+                "surface-dim": "#ddd9dc",
+                "secondary-fixed": "#e8e2cf",
+                "on-tertiary-fixed": "#211b00",
+                "on-tertiary-container": "#6a6133",
+                "tertiary-fixed-dim": "#d3c790",
+                "surface-container": "#f1edf0"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "16px",
+                "full": "9999px"
+        },
+        "spacing": {
+                "sm": "12px",
+                "md": "24px",
+                "xs": "4px",
+                "xl": "80px",
+                "margin": "32px",
+                "lg": "48px",
+                "gutter": "24px",
+                "base": "8px"
+        },
+        "fontFamily": {
+                "h1": [
+                        "Manrope"
+                ],
+                "label-sm": [
+                        "Manrope"
+                ],
+                "h3": [
+                        "Manrope"
+                ],
+                "body-md": [
+                        "Manrope"
+                ],
+                "body-lg": [
+                        "Manrope"
+                ],
+                "h2": [
+                        "Manrope"
+                ]
+        },
+        "fontSize": {
+                "h1": [
+                        "40px",
+                        {
+                                "lineHeight": "1.2",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "label-sm": [
+                        "13px",
+                        {
+                                "lineHeight": "1.2",
+                                "letterSpacing": "0.04em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "h3": [
+                        "20px",
+                        {
+                                "lineHeight": "1.4",
+                                "letterSpacing": "0",
+                                "fontWeight": "500"
+                        }
+                ],
+                "body-md": [
+                        "15px",
+                        {
+                                "lineHeight": "1.6",
+                                "letterSpacing": "0",
+                                "fontWeight": "400"
+                        }
+                ],
+                "body-lg": [
+                        "17px",
+                        {
+                                "lineHeight": "1.6",
+                                "letterSpacing": "0",
+                                "fontWeight": "400"
+                        }
+                ],
+                "h2": [
+                        "28px",
+                        {
+                                "lineHeight": "1.3",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "600"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+  .ambient-shadow {
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.03), 0 0 3px rgba(0,0,0,0.02);
+  }
+  .card-border {
+    border: 1px solid #E5E0D8;
+  }
+</style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md h-screen w-full flex overflow-hidden selection:bg-primary-container selection:text-on-primary-container">
+<aside class="w-[248px] h-screen border-r border-[#E5E0D8] dark:border-slate-800 bg-[#F9F8F6] dark:bg-[#121212] flex flex-col p-6 gap-y-4 font-manrope text-sm font-medium tracking-tight flex-shrink-0 z-20 relative">
+<div class="flex items-center gap-3 px-2 mb-4">
+<div class="w-8 h-8 rounded-full bg-gradient-to-tr from-primary-container to-secondary-container flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-primary text-[18px]" style="font-variation-settings: 'FILL' 1;">psychology</span>
+</div>
+<div>
+<h2 class="text-xl font-bold text-slate-900 dark:text-white tracking-tight leading-tight">Second Me</h2>
+<p class="text-[11px] text-slate-500 uppercase tracking-wider font-semibold">数字圣殿</p>
+</div>
+</div>
+<nav class="flex flex-col gap-1 w-full flex-1">
+<a class="flex items-center gap-3 px-3 py-2.5 bg-[#E0D7FF] dark:bg-[#4A4458] text-slate-900 dark:text-white font-semibold rounded-lg scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+        仪表盘
+      </a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:bg-[#F0EDE9] dark:hover:bg-slate-800 rounded-lg scale-95 active:scale-90 transition-transform hover:bg-[#F0EDE9] dark:hover:bg-slate-800 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">library_books</span>
+        记录库
+      </a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:bg-[#F0EDE9] dark:hover:bg-slate-800 rounded-lg scale-95 active:scale-90 transition-transform hover:bg-[#F0EDE9] dark:hover:bg-slate-800 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">summarize</span>
+        摘要中心
+      </a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:bg-[#F0EDE9] dark:hover:bg-slate-800 rounded-lg scale-95 active:scale-90 transition-transform hover:bg-[#F0EDE9] dark:hover:bg-slate-800 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">face_6</span>
+        个人画像
+      </a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:bg-[#F0EDE9] dark:hover:bg-slate-800 rounded-lg scale-95 active:scale-90 transition-transform hover:bg-[#F0EDE9] dark:hover:bg-slate-800 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">chat_bubble</span>
+        AI 对话
+      </a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:bg-[#F0EDE9] dark:hover:bg-slate-800 rounded-lg scale-95 active:scale-90 transition-transform hover:bg-[#F0EDE9] dark:hover:bg-slate-800 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">system_update_alt</span>
+        导入中心
+      </a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:bg-[#F0EDE9] dark:hover:bg-slate-800 rounded-lg scale-95 active:scale-90 transition-transform hover:bg-[#F0EDE9] dark:hover:bg-slate-800 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">insights</span>
+        洞察
+      </a>
+</nav>
+<div class="mt-auto pt-4 border-t border-[#E5E0D8]">
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:bg-[#F0EDE9] dark:hover:bg-slate-800 rounded-lg scale-95 active:scale-90 transition-transform hover:bg-[#F0EDE9] dark:hover:bg-slate-800 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+        设置
+      </a>
+</div>
+</aside>
+<main class="flex-1 flex flex-col h-screen overflow-hidden bg-background relative z-10">
+<header class="h-16 w-full border-b border-[#E5E0D8] dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md flex items-center justify-between px-8 shadow-sm dark:shadow-none flex-shrink-0 z-20">
+<div class="flex-1 flex items-center">
+<div class="relative w-full max-w-md flex items-center focus-within:ring-2 focus-within:ring-[#E0D7FF] rounded-lg transition-all">
+<span class="material-symbols-outlined absolute left-3 text-slate-400 text-[20px]">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-lg pl-10 pr-4 py-2 text-sm text-on-background placeholder:text-slate-400 focus:ring-0 focus:outline-none transition-colors" placeholder="搜索你的数字圣殿..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-slate-500 hover:opacity-80 transition-opacity w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-low">
+<span class="material-symbols-outlined text-[22px]">sync</span>
+</button>
+<button class="text-slate-500 hover:opacity-80 transition-opacity w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-low relative">
+<span class="material-symbols-outlined text-[22px]">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<div class="w-9 h-9 rounded-full overflow-hidden border border-[#E5E0D8] ml-2">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="close up portrait of a young professional woman with warm natural lighting and soft blurred background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4_4rJY49KRKu80y0bl5vyyCmhmgWvU2ZHJXx0jv0kOMRPtGqOfh0T2B2XEbuBHruHA6BBfkjZ9aHYaD9SKJApesClzohb2SZOcfVuATvkn6pOX9QrpE6dG_QNOWU8M1lhrk3-D7EDj08OAxY-F_phAhcuiI4hoYaxqZVsOdElQFM6Su6QwfsmGmnfPV_RkrQSiceZEJ4pHbBhsBJkj7I6-oJ4b8G_DHUmyEfZhwdrOLY01g4vrH6Mzqc1ayr80UShmNPl1ejbYW4"/>
+</div>
+</div>
+</header>
+<div class="flex-1 overflow-y-auto p-lg">
+<div class="max-w-[1200px] mx-auto w-full">
+<div class="mb-margin">
+<h1 class="font-h1 text-h1 text-on-background mb-1">你好, Cendy</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">您的数字圣殿已同步并准备就绪。</p>
+</div>
+<div class="grid grid-cols-12 gap-gutter">
+<div class="col-span-12 md:col-span-3 bg-surface-container-lowest rounded-xl p-md card-border ambient-shadow flex flex-col hover:-translate-y-0.5 transition-transform duration-300">
+<div class="flex items-center justify-between mb-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant">library_books</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary bg-primary-container px-2 py-1 rounded-md">今日 +12</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-1">新增记录</p>
+<p class="font-h2 text-h2 text-on-background">1,248</p>
+</div>
+<div class="col-span-12 md:col-span-3 bg-surface-container-lowest rounded-xl p-md card-border ambient-shadow flex flex-col hover:-translate-y-0.5 transition-transform duration-300">
+<div class="flex items-center justify-between mb-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant">stacked_line_chart</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-1">累计数据</p>
+<p class="font-h2 text-h2 text-on-background">8.4<span class="text-lg font-normal text-slate-400 ml-1">GB</span></p>
+</div>
+<div class="col-span-12 md:col-span-3 bg-surface-container-lowest rounded-xl p-md card-border ambient-shadow flex flex-col hover:-translate-y-0.5 transition-transform duration-300">
+<div class="flex items-center justify-between mb-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant">summarize</span>
+</div>
+<span class="font-label-sm text-label-sm text-slate-500 bg-surface-container-low px-2 py-1 rounded-md">待处理: 2</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-1">已生成摘要</p>
+<p class="font-h2 text-h2 text-on-background">342</p>
+</div>
+<div class="col-span-12 md:col-span-3 bg-surface-container-lowest rounded-xl p-md card-border ambient-shadow flex flex-col hover:-translate-y-0.5 transition-transform duration-300 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary-container opacity-20 rounded-full -mr-10 -mt-10 blur-2xl pointer-events-none"></div>
+<div class="flex items-center justify-between mb-4 relative z-10">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">face_6</span>
+</div>
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-1 relative z-10">个人画像更新</p>
+<p class="font-h3 text-h3 text-on-background relative z-10">正在同步洞察...</p>
+</div>
+<div class="col-span-12 md:col-span-5 bg-surface-container-lowest rounded-xl p-md card-border ambient-shadow flex flex-col h-[380px]">
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-h3 text-h3 text-on-background">近期动态</h3>
+<button class="text-primary hover:bg-primary-container p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined text-[20px]">more_horiz</span>
+</button>
+</div>
+<div class="flex-1 overflow-y-auto pr-2">
+<div class="relative border-l border-[#E5E0D8] ml-3 space-y-6 pb-4">
+<div class="relative pl-6">
+<div class="absolute left-[-5px] top-1.5 w-2.5 h-2.5 rounded-full bg-primary ring-4 ring-white"></div>
+<p class="font-label-sm text-label-sm text-slate-400 mb-1">上午 10:42</p>
+<p class="font-body-md text-body-md text-on-background">导入会议记录 "Q3 战略规划"</p>
+</div>
+<div class="relative pl-6">
+<div class="absolute left-[-5px] top-1.5 w-2.5 h-2.5 rounded-full bg-surface-variant ring-4 ring-white"></div>
+<p class="font-label-sm text-label-sm text-slate-400 mb-1">昨天, 下午 4:15</p>
+<p class="font-body-md text-body-md text-on-background">生成 "每周产品同步" 的摘要</p>
+</div>
+<div class="relative pl-6">
+<div class="absolute left-[-5px] top-1.5 w-2.5 h-2.5 rounded-full bg-surface-variant ring-4 ring-white"></div>
+<p class="font-label-sm text-label-sm text-slate-400 mb-1">昨天, 上午 11:30</p>
+<p class="font-body-md text-body-md text-on-background">根据近期邮件更新了个人画像</p>
+</div>
+<div class="relative pl-6">
+<div class="absolute left-[-5px] top-1.5 w-2.5 h-2.5 rounded-full bg-surface-variant ring-4 ring-white"></div>
+<p class="font-label-sm text-label-sm text-slate-400 mb-1">周一, 上午 9:00</p>
+<p class="font-body-md text-body-md text-on-background">系统备份已自动完成</p>
+</div>
+</div>
+</div>
+</div>
+<div class="col-span-12 md:col-span-4 bg-surface-container-lowest rounded-xl p-md card-border ambient-shadow flex flex-col items-center justify-center h-[380px] relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-b from-transparent to-surface-container-low opacity-50"></div>
+<h3 class="font-h3 text-h3 text-on-background absolute top-6 left-6 z-10">数字分身状态</h3>
+<div class="relative w-48 h-48 flex items-center justify-center mt-4">
+<div class="absolute inset-0 rounded-full border border-primary-container animate-[spin_10s_linear_infinite]"></div>
+<div class="absolute inset-2 rounded-full border border-dashed border-[#E5E0D8] animate-[spin_15s_linear_infinite_reverse]"></div>
+<div class="w-32 h-32 rounded-full bg-gradient-to-tr from-primary-container to-surface-bright shadow-[0_0_40px_rgba(224,215,255,0.6)] flex items-center justify-center relative z-10 transition-transform duration-700 group-hover:scale-105">
+<div class="text-center">
+<span class="font-h1 text-h1 text-primary block leading-none">72<span class="text-2xl">%</span></span>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest mt-1 block">已同步</span>
+</div>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-8 text-center max-w-[200px] relative z-10">您的数字分身正在主动学习您最近的输入。</p>
+</div>
+<div class="col-span-12 md:col-span-3 flex flex-col gap-gutter h-[380px]">
+<div class="bg-surface-container-lowest rounded-xl p-md card-border ambient-shadow flex-1 flex flex-col justify-center items-center text-center cursor-pointer hover:bg-surface-container-low transition-colors group">
+<div class="w-12 h-12 rounded-full bg-primary-container text-primary flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[24px]">add</span>
+</div>
+<h4 class="font-h3 text-h3 text-on-background mb-1">新增记录</h4>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">上传或听写</p>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-md card-border ambient-shadow flex-1 flex flex-col justify-center items-center text-center cursor-pointer hover:bg-surface-container-low transition-colors group">
+<div class="w-12 h-12 rounded-full bg-surface-container-low text-on-surface-variant flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[24px]">chat</span>
+</div>
+<h4 class="font-h3 text-h3 text-on-background mb-1">询问 AI</h4>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">检索您的知识库</p>
+</div>
+</div>
+<div class="col-span-12 md:col-span-6 bg-surface-container-lowest rounded-xl p-md card-border ambient-shadow">
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-h3 text-h3 text-on-background">最近导入</h3>
+<a class="font-label-sm text-label-sm text-primary hover:underline" href="#">查看全部</a>
+</div>
+<div class="space-y-4">
+<div class="flex items-center gap-4 p-3 rounded-lg hover:bg-surface-container-low transition-colors border border-transparent hover:border-[#E5E0D8]">
+<div class="w-10 h-10 rounded-lg bg-[#f4eff3] flex items-center justify-center text-[#625c7e]">
+<span class="material-symbols-outlined">description</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-body-md text-body-md text-on-background font-medium truncate">Q3 战略规划记录</p>
+<p class="font-label-sm text-label-sm text-slate-400">PDF • 2.4 MB • 今天, 上午 10:42</p>
+</div>
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">download</span>
+</button>
+</div>
+<div class="flex items-center gap-4 p-3 rounded-lg hover:bg-surface-container-low transition-colors border border-transparent hover:border-[#E5E0D8]">
+<div class="w-10 h-10 rounded-lg bg-[#f4eff3] flex items-center justify-center text-[#625c7e]">
+<span class="material-symbols-outlined">link</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-body-md text-body-md text-on-background font-medium truncate">设计系统研究文章</p>
+<p class="font-label-sm text-label-sm text-slate-400">网页剪报 • 14 项 • 昨天</p>
+</div>
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">open_in_new</span>
+</button>
+</div>
+</div>
+</div>
+<div class="col-span-12 md:col-span-6 bg-surface-container-lowest rounded-xl p-md card-border ambient-shadow">
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-h3 text-h3 text-on-background">今日建议</h3>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-bright rounded-lg p-4 border border-[#E5E0D8] hover:border-primary-fixed-dim transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-primary mb-2 block group-hover:-translate-y-1 transition-transform">auto_awesome</span>
+<p class="font-body-md text-body-md text-on-background font-medium mb-1">回顾本周摘要</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">基于 14 条新记录</p>
+</div>
+<div class="bg-surface-bright rounded-lg p-4 border border-[#E5E0D8] hover:border-primary-fixed-dim transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-primary mb-2 block group-hover:-translate-y-1 transition-transform">lightbulb</span>
+<p class="font-body-md text-body-md text-on-background font-medium mb-1">深化个人画像</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">添加近期职业目标</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

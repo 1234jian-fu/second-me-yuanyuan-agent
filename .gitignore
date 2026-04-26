@@ -8,6 +8,12 @@ node_modules/
 dist/
 web-build/
 expo-env.d.ts
+web-entry.bundle.js
+apps/*/.next/
+apps/*/out/
+apps/*/playwright-*.png
+mobile-settings-*.png
+ui-home-v1.png
 
 # Native
 .kotlin/
@@ -25,13 +31,21 @@ expo-env.d.ts
 npm-debug.*
 yarn-debug.*
 yarn-error.*
+*.log
+hub.*.log
+serve-web*.log
+expo-web*.log
 
 # macOS
 .DS_Store
 *.pem
 
 # local env files
+.env
 .env*.local
+.cloudflared/
+cloudflared/
+.codex/
 
 # typescript
 *.tsbuildinfo

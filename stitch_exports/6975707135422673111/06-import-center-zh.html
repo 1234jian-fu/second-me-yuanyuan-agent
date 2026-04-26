@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>导入中心 - Second Me</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        /* Custom scrollbar for a cleaner workstation look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e6e1e4;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #c9c5ce;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#605a7c",
+                        "surface-bright": "#fdf8fb",
+                        "secondary-container": "#e5e0cc",
+                        "inverse-surface": "#313032",
+                        "on-background": "#1c1b1e",
+                        "on-primary-fixed": "#1c1735",
+                        "surface-container-low": "#f7f2f5",
+                        "on-tertiary-fixed-variant": "#4f471c",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-container": "#625c7e",
+                        "background": "#fdf8fb",
+                        "outline": "#79767e",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#cac1e8",
+                        "error": "#ba1a1a",
+                        "surface-container-high": "#ebe7ea",
+                        "primary-fixed": "#e6deff",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed-variant": "#484263",
+                        "on-primary": "#ffffff",
+                        "surface-container-highest": "#e6e1e4",
+                        "surface-variant": "#e6e1e4",
+                        "secondary-fixed-dim": "#ccc6b4",
+                        "on-secondary-fixed-variant": "#4a4739",
+                        "surface-tint": "#605a7c",
+                        "primary-container": "#e0d7ff",
+                        "surface": "#fdf8fb",
+                        "on-secondary-fixed": "#1e1c10",
+                        "inverse-on-surface": "#f4eff3",
+                        "on-secondary-container": "#666353",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#cac1e8",
+                        "tertiary-container": "#eadda4",
+                        "secondary": "#625f4f",
+                        "tertiary-fixed": "#f0e3a9",
+                        "tertiary": "#685f31",
+                        "outline-variant": "#c9c5ce",
+                        "on-surface-variant": "#48464d",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#1c1b1e",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#ddd9dc",
+                        "secondary-fixed": "#e8e2cf",
+                        "on-tertiary-fixed": "#211b00",
+                        "on-tertiary-container": "#6a6133",
+                        "tertiary-fixed-dim": "#d3c790",
+                        "surface-container": "#f1edf0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "12px",
+                        "md": "24px",
+                        "xs": "4px",
+                        "xl": "80px",
+                        "margin": "32px",
+                        "lg": "48px",
+                        "gutter": "24px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "h1": ["Manrope"],
+                        "label-sm": ["Manrope"],
+                        "h3": ["Manrope"],
+                        "body-md": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "h2": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "h1": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "label-sm": ["13px", { "lineHeight": "1.2", "letterSpacing": "0.04em", "fontWeight": "600" }],
+                        "h3": ["20px", { "lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "500" }],
+                        "body-md": ["15px", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }],
+                        "body-lg": ["17px", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }],
+                        "h2": ["28px", { "lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex overflow-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- SideNavBar (Shared Component) -->
+<aside class="hidden md:flex flex-col bg-[#F9F8F6] dark:bg-[#121212] w-[248px] h-screen border-r border-[#E5E0D8] dark:border-slate-800 shrink-0 z-20 font-manrope text-sm font-medium tracking-tight">
+<div class="flex flex-col h-full p-6 gap-y-4">
+<!-- Brand Area -->
+<div class="flex items-center gap-3 px-2 mb-6">
+<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-container to-surface-container-highest flex items-center justify-center shadow-sm shrink-0">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">animation</span>
+</div>
+<div class="flex flex-col justify-center">
+<span class="text-xl font-bold text-slate-900 dark:text-white tracking-tight leading-tight">Second Me</span>
+<span class="text-xs text-slate-500 font-medium">数字避风港</span>
+</div>
+</div>
+<!-- Navigation Links -->
+<nav class="flex flex-col gap-1 w-full flex-1">
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:bg-[#F0EDE9] dark:hover:bg-slate-800 rounded-lg transition-colors duration-200 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>仪表盘</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:bg-[#F0EDE9] dark:hover:bg-slate-800 rounded-lg transition-colors duration-200 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">library_books</span>
+<span>记录库</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:bg-[#F0EDE9] dark:hover:bg-slate-800 rounded-lg transition-colors duration-200 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">summarize</span>
+<span>总结中心</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:bg-[#F0EDE9] dark:hover:bg-slate-800 rounded-lg transition-colors duration-200 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">face_6</span>
+<span>角色</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:bg-[#F0EDE9] dark:hover:bg-slate-800 rounded-lg transition-colors duration-200 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span>AI 对话</span>
+</a>
+<!-- Active Item -->
+<a class="flex items-center gap-3 px-3 py-2.5 bg-[#E0D7FF] dark:bg-[#4A4458] text-slate-900 dark:text-white font-semibold rounded-lg scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">system_update_alt</span>
+<span>导入中心</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:bg-[#F0EDE9] dark:hover:bg-slate-800 rounded-lg transition-colors duration-200 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">insights</span>
+<span>洞察</span>
+</a>
+</nav>
+<div class="mt-auto">
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:bg-[#F0EDE9] dark:hover:bg-slate-800 rounded-lg transition-colors duration-200 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>设置</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Workspace -->
+<main class="flex-1 flex flex-col h-screen overflow-hidden bg-background relative">
+<!-- TopAppBar (Shared Component) -->
+<header class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md h-16 w-full border-b border-[#E5E0D8] dark:border-slate-800 shadow-sm dark:shadow-none font-manrope text-sm flex items-center justify-between px-8 z-10 shrink-0">
+<div class="flex items-center gap-4">
+<div class="relative focus-within:ring-2 focus-within:ring-[#E0D7FF] rounded-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+<input class="pl-9 pr-4 py-1.5 bg-surface-container-low border-none rounded-full text-sm w-64 focus:outline-none focus:ring-0 text-on-surface placeholder:text-outline-variant" placeholder="搜索导入内容..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4 text-[#E0D7FF]">
+<button class="text-slate-500 dark:text-slate-400 hover:opacity-80 transition-opacity p-2 rounded-full hover:bg-surface-container">
+<span class="material-symbols-outlined">sync</span>
+</button>
+<button class="text-slate-500 dark:text-slate-400 hover:opacity-80 transition-opacity p-2 rounded-full hover:bg-surface-container relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 bg-primary rounded-full"></span>
+</button>
+<img alt="User Profile" class="w-8 h-8 rounded-full ml-2 border border-surface-variant cursor-pointer object-cover" data-alt="Portrait of a young woman with natural makeup, soft warm lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVhZcgJOuXvD9n3n-CYJ0K0k9QgoI_-eZVhqj1zuP2jdUHmazbMesLwECrNzyrJsFk2r_bI01YXzOeIqhqCsyKkMBkTSPE4HGcCmelFB_dTA3347qjDWZwOSmM3bnuuTjTtoDP8PSRiBmTaYXunGDsS1iUnChpD3_Udf-5A9zYDyRnJqa9bnZRIyxNxA-a0HTEFNm_oCakhJ7EevcXVRNssWvweBwG5S2f_r3SpuPhZyWJzhzx2tR57B3m2RocT5EaOHwlBiAlL7Y"/>
+</div>
+</header>
+<!-- Scrollable Content Canvas -->
+<div class="flex-1 overflow-y-auto p-margin lg:p-lg xl:p-xl">
+<div class="max-w-[1200px] mx-auto w-full flex flex-col gap-md">
+<!-- Page Header -->
+<div class="flex items-end justify-between mb-2">
+<div>
+<h1 class="font-h1 text-h1 text-on-background mb-1">导入中心</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">安全地提取、处理和整合外部知识。</p>
+</div>
+<button class="bg-primary text-on-primary px-5 py-2.5 rounded-lg font-label-sm text-label-sm hover:bg-primary-fixed-dim hover:text-on-primary-fixed transition-colors shadow-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                        新建导入
+                    </button>
+</div>
+<!-- Main Layout Grid -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-md items-start">
+<!-- Left Column (Upload & Tasks) -->
+<div class="xl:col-span-8 flex flex-col gap-md">
+<!-- Upload Area Card -->
+<div class="bg-surface-container-lowest rounded-xl border border-surface-variant shadow-[0_4px_24px_rgba(0,0,0,0.02)] p-md flex flex-col items-center justify-center min-h-[320px] relative overflow-hidden group">
+<!-- Dashed inner border -->
+<div class="absolute inset-4 border-2 border-dashed border-outline-variant rounded-xl pointer-events-none group-hover:border-primary-fixed-dim transition-colors duration-300 bg-surface-container-low/30"></div>
+<div class="w-16 h-16 rounded-full bg-primary-container flex items-center justify-center mb-4 z-10 shadow-sm">
+<span class="material-symbols-outlined text-[32px] text-on-primary-container" style="font-variation-settings: 'FILL' 1;">cloud_upload</span>
+</div>
+<h3 class="font-h3 text-h3 text-on-surface mb-2 z-10">将文件拖放到此处</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-center max-w-sm mb-6 z-10">
+                                支持 PDF、TXT、CSV 及其他平台常见数据导出格式。最大文件限制 500MB。
+                            </p>
+<button class="bg-surface-container border border-outline-variant text-on-surface px-6 py-2.5 rounded-lg font-label-sm text-label-sm hover:bg-surface-container-highest transition-colors z-10">
+                                浏览文件
+                            </button>
+</div>
+<!-- Task List -->
+<div class="bg-surface-container-lowest rounded-xl border border-surface-variant shadow-[0_4px_24px_rgba(0,0,0,0.02)] overflow-hidden">
+<div class="px-md py-4 border-b border-surface-variant flex items-center justify-between bg-surface-container-lowest/50">
+<h3 class="font-h3 text-[16px] font-semibold text-on-surface">最近导入</h3>
+<button class="text-primary font-label-sm text-label-sm hover:underline">查看全部</button>
+</div>
+<div class="flex flex-col">
+<!-- List Item 1 -->
+<div class="px-md py-4 border-b border-surface-variant flex items-center gap-4 hover:bg-surface-container-low transition-colors">
+<div class="w-10 h-10 rounded-lg bg-primary-container/50 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-[20px]">description</span>
+</div>
+<div class="flex-1 min-w-0">
+<h4 class="font-body-md text-[15px] font-medium text-on-surface truncate">Q3_Journal_Export.pdf</h4>
+<p class="font-body-md text-[13px] text-on-surface-variant">2小时前导入 • 2.4 MB</p>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<span class="px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-[11px]">已完成</span>
+</div>
+<button class="text-outline hover:text-on-surface p-1">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+<!-- List Item 2 -->
+<div class="px-md py-4 border-b border-surface-variant flex items-center gap-4 hover:bg-surface-container-low transition-colors">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">chat</span>
+</div>
+<div class="flex-1 min-w-0">
+<h4 class="font-body-md text-[15px] font-medium text-on-surface truncate">WhatsApp_Chat_History.txt</h4>
+<p class="font-body-md text-[13px] text-on-surface-variant">昨天导入 • 15.1 MB</p>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<span class="px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-[11px]">已完成</span>
+</div>
+<button class="text-outline hover:text-on-surface p-1">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+<!-- List Item 3 (Processing) -->
+<div class="px-md py-4 flex items-center gap-4 hover:bg-surface-container-low transition-colors bg-primary-container/10">
+<div class="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center shrink-0 relative overflow-hidden">
+<!-- Simulated progress background -->
+<div class="absolute bottom-0 left-0 w-full h-[45%] bg-primary/20"></div>
+<span class="material-symbols-outlined text-primary text-[20px] relative z-10 animate-pulse">database</span>
+</div>
+<div class="flex-1 min-w-0">
+<h4 class="font-body-md text-[15px] font-medium text-on-surface truncate">Notion_Workspace_Backup.csv</h4>
+<p class="font-body-md text-[13px] text-primary">处理中... 45%</p>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<span class="px-2.5 py-1 rounded-full border border-primary-fixed-dim text-primary font-label-sm text-[11px]">进行中</span>
+</div>
+<button class="text-outline hover:text-on-surface p-1">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column (Status & Details) -->
+<div class="xl:col-span-4 flex flex-col gap-md">
+<!-- Process Flow Card (Glassmorphism inspired) -->
+<div class="bg-gradient-to-br from-primary-container/80 to-surface-container-highest/80 backdrop-blur-sm rounded-xl border border-white/40 shadow-[0_8px_32px_rgba(96,90,124,0.05)] p-md">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-on-primary-container">route</span>
+<h3 class="font-h3 text-[16px] font-semibold text-on-primary-container">处理流程</h3>
+</div>
+<div class="flex flex-col gap-3 relative">
+<!-- Connecting Line -->
+<div class="absolute left-[15px] top-4 bottom-4 w-[2px] bg-primary/20"></div>
+<!-- Step 1 -->
+<div class="flex items-start gap-4 relative z-10">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0 shadow-sm border-2 border-surface-container-lowest">
+<span class="material-symbols-outlined text-[16px] text-white">check</span>
+</div>
+<div class="pt-1 pb-2">
+<h4 class="font-label-sm text-[13px] text-on-primary-container font-bold">1. 清洗与脱敏</h4>
+<p class="font-body-md text-[12px] text-on-primary-container/80 mt-0.5">移除个人身份信息并处理格式异常。</p>
+</div>
+</div>
+<!-- Step 2 (Active) -->
+<div class="flex items-start gap-4 relative z-10">
+<div class="w-8 h-8 rounded-full bg-surface-container-lowest flex items-center justify-center shrink-0 shadow-sm border-2 border-primary">
+<div class="w-2.5 h-2.5 rounded-full bg-primary animate-pulse"></div>
+</div>
+<div class="pt-1 pb-2">
+<h4 class="font-label-sm text-[13px] text-on-surface font-bold">2. 语义分割</h4>
+<p class="font-body-md text-[12px] text-on-surface-variant mt-0.5">将数据分解为具备上下文感知的节点。</p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="flex items-start gap-4 relative z-10 opacity-60">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center shrink-0 border-2 border-surface-container-lowest">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">auto_awesome</span>
+</div>
+<div class="pt-1">
+<h4 class="font-label-sm text-[13px] text-on-surface font-bold">3. 自动总结</h4>
+<p class="font-body-md text-[12px] text-on-surface-variant mt-0.5">生成高层级的抽象概括。</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Active Processing Details Panel -->
+<div class="bg-surface-container-lowest rounded-xl border border-surface-variant shadow-[0_4px_24px_rgba(0,0,0,0.02)] p-md flex-1 min-h-[300px]">
+<div class="flex justify-between items-start mb-6">
+<h3 class="font-h3 text-[16px] font-semibold text-on-surface">当前任务详情</h3>
+<span class="material-symbols-outlined text-outline">info</span>
+</div>
+<div class="mb-6 pb-6 border-b border-surface-variant">
+<h4 class="font-label-sm text-[11px] uppercase tracking-wider text-outline mb-1">目标文件</h4>
+<p class="font-body-md text-[14px] text-on-surface font-medium truncate">Notion_Workspace_Backup.csv</p>
+</div>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between text-[12px] mb-1">
+<span class="text-on-surface-variant">已提取实体</span>
+<span class="text-on-surface font-medium">1,240 / ~3,000</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full w-[40%]"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-[12px] mb-1">
+<span class="text-on-surface-variant">节点向量化</span>
+<span class="text-on-surface font-medium">进行中</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<!-- Indeterminate progress bar style -->
+<div class="h-full bg-primary-fixed-dim rounded-full w-1/3 animate-[translateX_2s_infinite]"></div>
+</div>
+</div>
+</div>
+<div class="mt-8 bg-surface-container py-3 px-4 rounded-lg flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[18px] mt-0.5">lightbulb</span>
+<p class="font-body-md text-[12px] text-on-surface-variant leading-relaxed">
+                                    大型 CSV 文件完全分割最多可能需要 5 分钟。您可以安全地离开此页面；处理将在后台继续进行。
+                                </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

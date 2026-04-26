@@ -1,0 +1,75 @@
+﻿{
+    "project":  {
+                    "title":  "Second Me Digital Twin",
+                    "id":  "8456898713827661082",
+                    "fetchedAt":  "2026-04-23T13:55:35.4415509+08:00"
+                },
+    "screens":  [
+                    {
+                        "order":  1,
+                        "title":  "录音页",
+                        "screenId":  "1f193aedd7814b7d9545ccb769ffe43e",
+                        "width":  780,
+                        "height":  2610,
+                        "screenshot":  "01-recording.png",
+                        "html":  "01-recording.html",
+                        "screenshotUrl":  "https://lh3.googleusercontent.com/aida/ADBb0uiceb5Nkof4uvKH0YdZZZXHlOvqRuHB9FLVXGZ0TMljL0RQMGTiBaGgQ_XyfgnoWqnpCMQHTYUBKXhnufxD30AJoxBVMfy8PShH1nDeol3W4Y8rZ5JsUBXYDX0lFTH5gKc9RuA7eqoF4Z81Lw3RoqAjNkEdrgHFrsHiZk4oqDPh-jS3NUdVUqX44L4lPBXNubr2PS5fC9MEGQtw3pzQjp6fgZwAGaugj2Nc7Nso53je9EwTZIGZpaxnhA",
+                        "htmlUrl":  "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sX2E1MDRlZTU5ZDQ3ZjQyNzc4ODAzODBkNjI5ZTQyY2YxEgsSBxDYx9ajtxUYAZIBIwoKcHJvamVjdF9pZBIVQhM4NDU2ODk4NzEzODI3NjYxMDgy\u0026filename=\u0026opi=89354086"
+                    },
+                    {
+                        "order":  2,
+                        "title":  "文字记录页",
+                        "screenId":  "8cc393f91bf04b54a2e64bb5b5c7731a",
+                        "width":  780,
+                        "height":  1856,
+                        "screenshot":  "02-text-record.png",
+                        "html":  "02-text-record.html",
+                        "screenshotUrl":  "https://lh3.googleusercontent.com/aida/ADBb0ug0tenNavzfOerdQpKHdsTG63c6odVsv5kJCD2_XDwCMwcMmBGS8VaoNsMHnmL5-vxFvWDcLmE9HQgNluleUIBALiIb2xu2VLO4zN_AeqgG_mMKSaNXBOx0ShLNueJ3uH-ziFFBx7RslhGgIWDwDpKqrlr6uXV6DIDj0NNvSkplTeNttd9ZI1iDmoBu_Oe2dE4UW_veEbeGPpLhpIG0jj99elf-d7H7JQdXR7rEdwlH2avRnMJ3mRokDXg",
+                        "htmlUrl":  "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzE1OWFlODA0Y2VkMDRhZDg5MTQxNjFmZTgzM2U2Y2FjEgsSBxDYx9ajtxUYAZIBIwoKcHJvamVjdF9pZBIVQhM4NDU2ODk4NzEzODI3NjYxMDgy\u0026filename=\u0026opi=89354086"
+                    },
+                    {
+                        "order":  3,
+                        "title":  "Second Me 首页",
+                        "screenId":  "e1f6cc8a41ef47c7855f3e4943a07e86",
+                        "width":  780,
+                        "height":  2496,
+                        "screenshot":  "03-home.png",
+                        "html":  "03-home.html",
+                        "screenshotUrl":  "https://lh3.googleusercontent.com/aida/ADBb0uhAhX32_hw7tsTdHaeS51z7hCtKkIYlckDGXNSK0gP5mdTTL_IVwNjrtoQiu_CL9SXDhGwcpAyZDN24Xs2MhgiMJCIaUpW5NRDZHJwpyb3hqlh7LUhlOIVw22ZLp74PNE2ENrQgOy3ikDVNk0gSyBqMVHJezfCEPCtrAD7LhatufD5Tm4GgNikAIEkyocuq3tDV5Xt7XBoniAVMdi-Ye6nHTWRvHtRd3qoTPoGZxYaWdJ8ukOdotyjbEg",
+                        "htmlUrl":  "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sX2JhNmMwYmU4MjJmOTRiYzA5YjJjMjM4ZTMyZjAxZjZhEgsSBxDYx9ajtxUYAZIBIwoKcHJvamVjdF9pZBIVQhM4NDU2ODk4NzEzODI3NjYxMDgy\u0026filename=\u0026opi=89354086"
+                    },
+                    {
+                        "order":  4,
+                        "title":  "AI 对话页 (语音主界面)",
+                        "screenId":  "d7aa3cf940e14db6b4feba4d03c1e2ac",
+                        "width":  780,
+                        "height":  2852,
+                        "screenshot":  "04-ai-voice-main.png",
+                        "html":  "04-ai-voice-main.html",
+                        "screenshotUrl":  "https://lh3.googleusercontent.com/aida/ADBb0ugWxa9g71l0opnL1SwZZjXzrK8YDWovdQBoJNvbcP34TpYnYhymJvR9TAsIIu0xnu-xYlF3zqqI0siWnId7aj_rxgieLycC6sWxwQv0A2_Ay35Cbsx9ipCJVvUd8Gtstkwm6kjbZQzB13kTaY-wy06Sb_MWxdm3R8YHET9XEDzsFe2pjgQy2tih9mfguOBPgBqRa0_WlBNBu29bMTxje4S4et1FYd3TjNeCP3CRmcBnqyglpizX60C0nw",
+                        "htmlUrl":  "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzI4MTA3NTQwMGFjNTQzYWI5N2RlNWQ1ZjIxYWVjNTRkEgsSBxDYx9ajtxUYAZIBIwoKcHJvamVjdF9pZBIVQhM4NDU2ODk4NzEzODI3NjYxMDgy\u0026filename=\u0026opi=89354086"
+                    },
+                    {
+                        "order":  5,
+                        "title":  "AI 对话反馈页",
+                        "screenId":  "74825ea667a24d93ac08f634de4645f0",
+                        "width":  780,
+                        "height":  3864,
+                        "screenshot":  "05-ai-feedback.png",
+                        "html":  "05-ai-feedback.html",
+                        "screenshotUrl":  "https://lh3.googleusercontent.com/aida/ADBb0ugK_kC8BquSF5WXqw3KfrnvnpR4KIJzcLpkkdNz9aFhri_NpQxFTvbDJ9axtMtrtTZBBTcSnYwix7Yz0wJRrqhNl8T96uRPEFX6s-N0tcIBjNNdZgXGXMrx74LF0wC-pozF--IMziVzwJWZB2gFe3uIFoOBqYxkVyFVQ1BYAJm2QZu8AT7_sPeiM9fY4fncPF2z0x6dqG12GwBGnzfRDcuxwKSwfhY2vvv2SzLScdIDZ_btHGzDI-NjKQ",
+                        "htmlUrl":  "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzg1ODRkYzYzNjk4NzQwOTJhMzQ4NWRmOWNlYTk2MWIwEgsSBxDYx9ajtxUYAZIBIwoKcHJvamVjdF9pZBIVQhM4NDU2ODk4NzEzODI3NjYxMDgy\u0026filename=\u0026opi=89354086"
+                    },
+                    {
+                        "order":  6,
+                        "title":  "今日计划页",
+                        "screenId":  "6e8c57c487f44a0094dcc0c9bf45143f",
+                        "width":  780,
+                        "height":  3886,
+                        "screenshot":  "06-today-plan.png",
+                        "html":  "06-today-plan.html",
+                        "screenshotUrl":  "https://lh3.googleusercontent.com/aida/ADBb0uh7sFfu-EpWis_X9XglIqfYGRtlHl95NmWX-4IPwFbLEAUZmpfuXCOsznhGxgFXh-dOnZR3tNK_PWaRf3nQPqNH_NAboTcusjUqDLa3unm-96qWmsA1p7U58s6hbTPNLcymsHKUugMNmACJtFQ9Eco5SYxl1EdHQl8WIqeSAA03iHT00Ox8_N_rB_7cRW-OgVlzG4lu0wj1hFR9G5NrnzDEywhqweW_8E5G6zQ9W8AhQjdZtvOmOzzVQRA",
+                        "htmlUrl":  "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzE4ZTAyMDU0ZDlhMTRlZGY4NmUwOGFlN2Q0ZmY1NDg3EgsSBxDYx9ajtxUYAZIBIwoKcHJvamVjdF9pZBIVQhM4NDU2ODk4NzEzODI3NjYxMDgy\u0026filename=\u0026opi=89354086"
+                    }
+                ]
+}
