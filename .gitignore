@@ -47,6 +47,14 @@ expo-web*.log
 cloudflared/
 .codex/
 
+# local/offline speech model assets
+models/
+*.onnx
+*.ort
+*.bin
+*.far
+*.fst
+
 # typescript
 *.tsbuildinfo
 

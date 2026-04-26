@@ -36,6 +36,24 @@ export const hubConfig = {
   port: optionalNumberEnv("HUB_PORT", 8787),
   allowOrigin: optionalEnv("HUB_ALLOW_ORIGIN", "*"),
   apiToken: optionalEnv("HUB_API_TOKEN"),
+  tts: {
+    provider: optionalEnv("TTS_PROVIDER", "browser"),
+    sherpaOnnx: {
+      acousticModel: optionalEnv("SHERPA_ONNX_TTS_ACOUSTIC_MODEL"),
+      dataDir: optionalEnv("SHERPA_ONNX_TTS_DATA_DIR"),
+      engine: optionalEnv("SHERPA_ONNX_TTS_ENGINE", "matcha"),
+      lexicon: optionalEnv("SHERPA_ONNX_TTS_LEXICON"),
+      modelDir: optionalEnv("SHERPA_ONNX_TTS_MODEL_DIR"),
+      modelName: optionalEnv("SHERPA_ONNX_TTS_MODEL"),
+      ruleFsts: optionalEnv("SHERPA_ONNX_TTS_RULE_FSTS"),
+      silenceScale: optionalNumberEnv("SHERPA_ONNX_TTS_SILENCE_SCALE", 0.2),
+      speed: optionalNumberEnv("SHERPA_ONNX_TTS_SPEED", 1),
+      tokens: optionalEnv("SHERPA_ONNX_TTS_TOKENS"),
+      vocoder: optionalEnv("SHERPA_ONNX_TTS_VOCODER"),
+      voiceId: optionalNumberEnv("SHERPA_ONNX_TTS_VOICE_ID", 0),
+      voices: optionalEnv("SHERPA_ONNX_TTS_VOICES"),
+    },
+  },
   providers: [
     createProvider("AI_PRIMARY", "openai-compatible"),
     createProvider("AI_FALLBACK_1", "deepseek-compatible"),
@@ -56,5 +74,15 @@ export function getPublicHubStatus() {
       name: provider.name,
       provider: provider.provider,
     })),
+    tts: {
+      provider: hubConfig.tts.provider,
+      sherpaOnnx: {
+        engine: hubConfig.tts.sherpaOnnx.engine,
+        hasAcousticModel: Boolean(hubConfig.tts.sherpaOnnx.acousticModel),
+        hasModelDir: Boolean(hubConfig.tts.sherpaOnnx.modelDir),
+        hasModelName: Boolean(hubConfig.tts.sherpaOnnx.modelName),
+        hasVocoder: Boolean(hubConfig.tts.sherpaOnnx.vocoder),
+      },
+    },
   };
 }

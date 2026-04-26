@@ -156,3 +156,20 @@
 - Files created/modified:
   - `app/(tabs)/chat.tsx`
   - `progress.md`
+
+### Phase 6.2: sherpa-onnx TTS Readiness
+- **Status:** complete
+- Actions taken:
+  - Cloned `https://github.com/k2-fsa/sherpa-onnx` outside this repo as `D:\Digital human\sherpa-onnx-reference`.
+  - Read Android `SherpaOnnxTts` and Node TTS examples for Matcha/Kokoro/VITS-style offline TTS.
+  - Decided the safe first integration path is Hub-side sherpa-onnx TTS, not Expo Go native loading.
+  - Added `.gitignore` rules for local model assets such as `models/`, `.onnx`, `.bin`, `.far`, and `.fst`.
+  - Added `.env.example` placeholders for sherpa-onnx TTS model paths.
+  - Added Hub status metadata for configured TTS provider/model asset presence.
+  - Created `docs/voice-tts.md` with required model file layout and next implementation steps.
+- Files created/modified:
+  - `.gitignore`
+  - `.env.example`
+  - `docs/voice-tts.md`
+  - `server/hub/config.mjs`
+  - `progress.md`
