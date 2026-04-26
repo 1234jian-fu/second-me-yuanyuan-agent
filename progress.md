@@ -144,3 +144,15 @@
   - `progress.md`
   - `scripts/check-ai-model.mjs`
   - `server/hub/pipeline.mjs`
+
+### Phase 6.1: Voice Interaction From WebCall Reference
+- **Status:** complete
+- Actions taken:
+  - Cloned `https://github.com/YolanYL/webcall` outside this repo as `D:\Digital human\webcall-reference`.
+  - Read its voice flow: browser microphone capture / recognition, LLM response, sentence-level TTS queue, and playback unlock/fallback.
+  - Upgraded the chat voice modal from a one-shot recognizer into a looped voice state flow: listening -> processing -> speaking -> listening.
+  - Kept the current Expo Web implementation dependency-light by using browser SpeechRecognition and speechSynthesis while preserving the existing Hub/LLM path.
+  - Confirmed `/chat` returns HTTP 200 and `npm run typecheck` passes.
+- Files created/modified:
+  - `app/(tabs)/chat.tsx`
+  - `progress.md`

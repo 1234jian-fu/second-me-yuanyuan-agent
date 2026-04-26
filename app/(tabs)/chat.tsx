@@ -23,6 +23,8 @@ type WebSpeechRecognition = {
   onend: (() => void) | null;
 };
 
+type VoiceState = "idle" | "listening" | "processing" | "speaking" | "error";
+
 const skills = ["复盘", "目标对齐", "自我观察", "决策辅助"];
 
 const starterMessages: ChatMessageWithRefs[] = [
@@ -53,28 +55,34 @@ function getWebSpeechRecognition() {
 }
 
 function speakReply(text: string) {
-  if (Platform.OS !== "web") {
-    return;
-  }
+  return new Promise<void>((resolve) => {
+    if (Platform.OS !== "web") {
+      resolve();
+      return;
+    }
 
-  const scope = globalThis as unknown as {
-    speechSynthesis?: {
-      cancel: () => void;
-      speak: (utterance: SpeechSynthesisUtterance) => void;
+    const scope = globalThis as unknown as {
+      speechSynthesis?: {
+        cancel: () => void;
+        speak: (utterance: SpeechSynthesisUtterance) => void;
+      };
+      SpeechSynthesisUtterance?: typeof SpeechSynthesisUtterance;
     };
-    SpeechSynthesisUtterance?: typeof SpeechSynthesisUtterance;
-  };
 
-  if (!scope.speechSynthesis || !scope.SpeechSynthesisUtterance) {
-    return;
-  }
+    if (!scope.speechSynthesis || !scope.SpeechSynthesisUtterance) {
+      resolve();
+      return;
+    }
 
-  scope.speechSynthesis.cancel();
-  const utterance = new scope.SpeechSynthesisUtterance(text);
-  utterance.lang = "zh-CN";
-  utterance.rate = 0.95;
-  utterance.pitch = 1;
-  scope.speechSynthesis.speak(utterance);
+    scope.speechSynthesis.cancel();
+    const utterance = new scope.SpeechSynthesisUtterance(text);
+    utterance.lang = "zh-CN";
+    utterance.rate = 0.95;
+    utterance.pitch = 1;
+    utterance.onend = () => resolve();
+    utterance.onerror = () => resolve();
+    scope.speechSynthesis.speak(utterance);
+  });
 }
 
 function stopSpeaking() {
@@ -92,11 +100,16 @@ export default function ChatTab() {
   const params = useLocalSearchParams<{ prompt?: string | string[] }>();
   const { isLoading, error, messages, sendMessage } = useChat();
   const recognitionRef = useRef<WebSpeechRecognition | null>(null);
+  const voiceLoopRef = useRef(false);
+  const voiceOpenRef = useRef(false);
+  const voiceRestartTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [input, setInput] = useState("");
   const [status, setStatus] = useState<string | null>(null);
   const [handledPrompt, setHandledPrompt] = useState<string | null>(null);
   const [voiceOpen, setVoiceOpen] = useState(false);
   const [isListening, setIsListening] = useState(false);
+  const [voiceState, setVoiceState] = useState<VoiceState>("idle");
+  const [voiceLoopEnabled, setVoiceLoopEnabled] = useState(false);
   const [voiceStatus, setVoiceStatus] = useState("点击开始，像打电话一样和渊元说话");
   const [voiceTranscript, setVoiceTranscript] = useState("");
   const [voiceReply, setVoiceReply] = useState("");
@@ -113,6 +126,20 @@ export default function ChatTab() {
     setInput(normalizedPrompt);
     setHandledPrompt(normalizedPrompt);
   }, [handledPrompt, normalizedPrompt]);
+
+  useEffect(() => {
+    voiceOpenRef.current = voiceOpen;
+  }, [voiceOpen]);
+
+  useEffect(() => {
+    return () => {
+      recognitionRef.current?.stop();
+      if (voiceRestartTimerRef.current) {
+        clearTimeout(voiceRestartTimerRef.current);
+      }
+      stopSpeaking();
+    };
+  }, []);
 
   const conversationMessages = messages.filter((message) => message.content !== "我会先作为你当前会话里的数字分身，帮你整理想法、计划和记录。");
   const visibleMessages: ChatMessageWithRefs[] =
@@ -135,41 +162,73 @@ export default function ChatTab() {
     }
   }
 
+  function scheduleNextListeningTurn() {
+    if (!voiceLoopRef.current || !voiceOpenRef.current) {
+      setVoiceState("idle");
+      setVoiceStatus("本轮语音已结束，可以继续说话。");
+      return;
+    }
+
+    setVoiceStatus("我会继续听，你可以接着说。");
+    voiceRestartTimerRef.current = setTimeout(() => {
+      if (voiceLoopRef.current && voiceOpenRef.current) {
+        startVoiceChat(true);
+      }
+    }, 650);
+  }
+
   async function sendVoiceText(text: string) {
+    setVoiceState("processing");
     setVoiceStatus("渊元正在思考…");
     setVoiceReply("");
 
     try {
       const reply = await sendMessage(text);
       setVoiceReply(reply);
+      setVoiceState("speaking");
       setVoiceStatus("正在播放回复");
-      speakReply(reply);
+      await speakReply(reply);
+      scheduleNextListeningTurn();
     } catch {
+      setVoiceState("error");
       setVoiceStatus("语音对话失败，请稍后再试。");
     }
   }
 
-  function startVoiceChat() {
+  function startVoiceChat(continueLoop = false) {
     if (Platform.OS !== "web") {
+      setVoiceState("error");
       setVoiceStatus("移动端语音识别接口已预留。当前先在 Web 预览中体验语音对话。");
       return;
     }
 
     const SpeechRecognition = getWebSpeechRecognition();
     if (!SpeechRecognition) {
+      setVoiceState("error");
       setVoiceStatus("当前浏览器不支持语音识别，请用 Chrome / Edge 打开。");
       return;
     }
 
+    if (voiceRestartTimerRef.current) {
+      clearTimeout(voiceRestartTimerRef.current);
+      voiceRestartTimerRef.current = null;
+    }
+
+    recognitionRef.current?.stop();
     stopSpeaking();
+    voiceLoopRef.current = true;
+    setVoiceLoopEnabled(true);
     const recognition = new SpeechRecognition();
     recognition.lang = "zh-CN";
     recognition.continuous = false;
     recognition.interimResults = false;
     recognitionRef.current = recognition;
-    setVoiceTranscript("");
-    setVoiceReply("");
-    setVoiceStatus("我在听，你可以开始说话");
+    if (!continueLoop) {
+      setVoiceTranscript("");
+      setVoiceReply("");
+    }
+    setVoiceState("listening");
+    setVoiceStatus("我在听，你可以开始说话。说完后会自动发送。");
     setIsListening(true);
 
     recognition.onresult = (event) => {
@@ -178,6 +237,7 @@ export default function ChatTab() {
       setIsListening(false);
 
       if (!transcript) {
+        setVoiceState("error");
         setVoiceStatus("没有听清，可以再说一次。");
         return;
       }
@@ -186,17 +246,35 @@ export default function ChatTab() {
     };
     recognition.onerror = () => {
       setIsListening(false);
+      setVoiceState("error");
       setVoiceStatus("没有成功识别到语音，请检查浏览器麦克风权限。");
     };
-    recognition.onend = () => setIsListening(false);
+    recognition.onend = () => {
+      setIsListening(false);
+      if (voiceState === "listening") {
+        setVoiceStatus("聆听已暂停，可以再点一次开始说话。");
+      }
+    };
     recognition.start();
   }
 
-  function closeVoiceChat() {
+  function pauseVoiceChat() {
+    voiceLoopRef.current = false;
+    setVoiceLoopEnabled(false);
+    if (voiceRestartTimerRef.current) {
+      clearTimeout(voiceRestartTimerRef.current);
+      voiceRestartTimerRef.current = null;
+    }
     recognitionRef.current?.stop();
     recognitionRef.current = null;
     stopSpeaking();
     setIsListening(false);
+    setVoiceState("idle");
+    setVoiceStatus("语音通话已暂停。");
+  }
+
+  function closeVoiceChat() {
+    pauseVoiceChat();
     setVoiceOpen(false);
   }
 
@@ -311,8 +389,22 @@ export default function ChatTab() {
               <YuanIconButton icon="close" onPress={closeVoiceChat} />
             </View>
 
-            <View style={[styles.voiceOrb, isListening && styles.voiceOrbListening]}>
+            <View style={[styles.voiceOrb, isListening && styles.voiceOrbListening, voiceState === "speaking" && styles.voiceOrbSpeaking]}>
               <MaterialSymbol name={isListening ? "pause" : "mic"} size={42} color={colors.onPrimary} />
+            </View>
+
+            <View style={styles.voiceStateRow}>
+              {[
+                { key: "listening", label: "聆听" },
+                { key: "processing", label: "思考" },
+                { key: "speaking", label: "播放" },
+              ].map((item) => (
+                <View key={item.key} style={[styles.voiceStep, voiceState === item.key && styles.voiceStepActive]}>
+                  <AppText variant="micro" style={voiceState === item.key ? styles.voiceStepActiveText : styles.voiceStepText}>
+                    {item.label}
+                  </AppText>
+                </View>
+              ))}
             </View>
 
             <AppText variant="bodyStrong" style={styles.voiceStatus}>
@@ -335,17 +427,17 @@ export default function ChatTab() {
               <Pressable
                 accessibilityRole="button"
                 disabled={isLoading}
-                onPress={startVoiceChat}
+                onPress={() => startVoiceChat()}
                 style={({ pressed }) => [styles.voicePrimaryButton, pressed && styles.pressed, isLoading && styles.disabled]}
               >
                 <MaterialSymbol name="mic" size={22} color={colors.onPrimary} />
                 <AppText variant="bodyStrong" style={styles.voicePrimaryText}>
-                  {isListening ? "正在聆听" : "开始说话"}
+                  {voiceLoopEnabled ? "继续说话" : "开始通话"}
                 </AppText>
               </Pressable>
-              <Pressable accessibilityRole="button" onPress={closeVoiceChat} style={styles.voiceSecondaryButton}>
+              <Pressable accessibilityRole="button" onPress={pauseVoiceChat} style={styles.voiceSecondaryButton}>
                 <AppText variant="bodyStrong" style={styles.voiceSecondaryText}>
-                  结束
+                  暂停
                 </AppText>
               </Pressable>
             </View>
@@ -539,6 +631,33 @@ const styles = StyleSheet.create({
   voiceOrbListening: {
     backgroundColor: colors.primaryPressed,
     transform: [{ scale: 1.04 }],
+  },
+  voiceOrbSpeaking: {
+    backgroundColor: colors.success,
+  },
+  voiceStateRow: {
+    flexDirection: "row",
+    justifyContent: "center",
+    gap: spacing.xs,
+  },
+  voiceStep: {
+    borderWidth: 1,
+    borderColor: colors.border,
+    borderRadius: radius.full,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.xs,
+    backgroundColor: "rgba(255,255,255,0.58)",
+  },
+  voiceStepActive: {
+    borderColor: colors.primary,
+    backgroundColor: colors.primarySoft,
+  },
+  voiceStepText: {
+    color: colors.textMuted,
+  },
+  voiceStepActiveText: {
+    color: colors.primaryPressed,
+    fontWeight: "800",
   },
   voiceStatus: {
     textAlign: "center",
