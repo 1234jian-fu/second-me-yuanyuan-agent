@@ -9,6 +9,7 @@
     "web": "expo start --web",
     "typecheck": "tsc --noEmit",
     "uipro:search": "powershell -ExecutionPolicy Bypass -File .\\scripts\\run-uipro-search.ps1",
+    "ai:check": "node ./scripts/check-ai-model.mjs",
     "hub:start": "node ./server/hub/index.mjs",
     "build:android:preview": "eas build -p android --profile preview",
     "build:android:production": "eas build -p android --profile production",

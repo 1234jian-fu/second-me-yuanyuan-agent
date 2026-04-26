@@ -80,7 +80,7 @@
 - **Status:** complete
 - Actions taken:
   - Updated local `.env` fallback provider to DeepSeek-compatible.
-  - Set fallback model to `deepseek-v4-flash`.
+  - Set fallback model to `deepseek-v4-pro`.
   - Updated `.env.example` model placeholder.
   - Verified fallback provider through `server/hub/providers.mjs` with a test chat request.
 - Files created/modified:
@@ -94,12 +94,16 @@
 |------|-------|----------|--------|--------|
 | Planning files exist | `Test-Path task_plan.md/findings.md/progress.md` | Initially false | All were missing before initialization | done |
 | Project scripts inspected | `package.json` | Find Expo and Hub scripts | `web`, `typecheck`, `hub:start`, build scripts present | done |
-| DeepSeek fallback provider | `你好` via `deepseek-v4-flash` | Model reply without exposing key | Returned a Chinese assistant reply | pass |
+| DeepSeek fallback provider | `你好` via `deepseek-v4-pro` | Model reply without exposing key | Returned a Chinese assistant reply | pass |
+| Build docs typecheck | `npm run typecheck` after `npm ci` | TypeScript passes | `tsc --noEmit` completed without errors | pass |
+| EAS login status | `npx --yes eas-cli whoami` | Expo account identity or logged-out state | `Not logged in` | blocked until login |
 
 ## Error Log
 | Timestamp | Error | Attempt | Resolution |
 |-----------|-------|---------|------------|
 | 2026-04-26 | No planning files existed | 1 | Created `task_plan.md`, `findings.md`, `progress.md` |
+| 2026-04-26 | `python` command points to Microsoft Store placeholder | 1 | Re-ran planning catchup with `py`, which completed without output |
+| 2026-04-26 | `npm run typecheck` failed because `node_modules` was missing and `tsc` was not found | 1 | Ran `npm ci`, then `npm run typecheck` passed |
 
 ## 5-Question Reboot Check
 | Question | Answer |
@@ -109,3 +113,34 @@
 | What's the goal? | Build a runnable mobile MVP for a personal digital twin Agent named 渊元 |
 | What have I learned? | The project needs local Hub for model access and phone needs LAN IP or Tunnel, not `127.0.0.1` |
 | What have I done? | Created persistent planning and handoff files |
+
+### Phase 6: Build Deploy Window
+- **Status:** in_progress
+- Actions taken:
+  - Created and switched to branch `build/mobile-app`.
+  - Checked `app.json`: app identifiers, assets, router, secure store, font, and `expo-av` microphone permission are present.
+  - Checked `eas.json`: Android `preview` build is configured as `apk`.
+  - Added EAS `environment` bindings for `development`, `preview`, and `production` build profiles.
+  - Added `EXPO_PUBLIC_HUB_URL` to `.env.example` because `config/env.ts` reads it for Hub base URL.
+  - Expanded `docs/mobile-build.md` with Expo Go phone preview, LAN Hub, Cloudflare Tunnel, EAS preview APK, environment variable, and safety steps.
+  - Ran `npm ci` because the fresh clone had no `node_modules`.
+  - Verified `npm run typecheck` passes.
+  - Checked EAS CLI login status; current machine is not logged in to Expo.
+  - Added local-only `.env` DeepSeek primary provider configuration for the computer Hub without printing or committing the API key.
+  - Restarted the current project Hub on `8787` and Expo preview on `8083`.
+  - Verified Hub status reports `deepseek-compatible` / `deepseek-v4-pro` with `hasApiKey: true`.
+  - Verified `POST /v1/ai` returns HTTP 200 from `deepseek-v4-pro`.
+  - Updated Hub capture pipeline so `analyze`, `summarize`, and `classify` use configured model providers instead of `hub-local-mock` when a provider exists.
+  - Added `npm run ai:check` to verify chat, plan, summary, classification, and analyze all use the configured large model.
+  - Switched the local DeepSeek model target from `deepseek-v4-flash` to `deepseek-v4-pro`.
+  - Added local-only rapi primary provider config for `gpt-5.2` without printing or committing the API key.
+  - Verified Hub status sees primary `openai-compatible` / `gpt-5.2` and fallback `deepseek-compatible` / `deepseek-v4-pro`.
+  - Direct upstream rapi `gpt-5.2` check returned HTTP 503, so `npm run ai:check` currently succeeds through DeepSeek fallback.
+- Files created/modified:
+  - `.env.example`
+  - `eas.json`
+  - `docs/mobile-build.md`
+  - `package.json`
+  - `progress.md`
+  - `scripts/check-ai-model.mjs`
+  - `server/hub/pipeline.mjs`

@@ -51,7 +51,8 @@
 | Issue | Resolution |
 |-------|------------|
 | Sonnet 模型在 rapi 当前分组不可用 | 使用已测通的 Haiku，后续需要 rapi 可用模型名或分组权限 |
-| DeepSeek fallback 已接入 | `AI_FALLBACK_1` 使用 DeepSeek-compatible，模型 `deepseek-v4-flash`，已通过 Hub provider 直测 |
+| DeepSeek fallback 已接入 | 使用 DeepSeek-compatible，当前模型切换为 `deepseek-v4-pro`，需通过 Hub provider 验证 |
+| rapi GPT primary 待稳定 | 本机 `.env` 已配置 rapi `gpt-5.2` 为 primary、DeepSeek Pro 为 fallback；直接上游测试返回 HTTP 503，当前功能通过 fallback 保持可用 |
 | App Web 发送消息后无助手回复 | 修复消息显示逻辑，并保留 AI service 失败兜底 |
 | 电脑可访问 Hub，但手机访问 `127.0.0.1` 会失败 | 手机必须用电脑局域网 IP，例如 `http://10.71.171.246:8787/v1/ai`，或使用 Cloudflare Tunnel |
 | PowerShell 读取某些中文文件时可能显示乱码 | 用 `Get-Content -Encoding UTF8` 读取；编辑时保持 UTF-8 |
